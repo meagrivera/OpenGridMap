@@ -1,0 +1,138 @@
+/*
+Akkordeon Menu
+
+Akkordeon-Menüs eignen sich zur übersichtlichen Darstellung vieler gleichartiger Informationen, wie z.B. FAQs, Link- oder Downloadlisten. Sie enthalten Überschriften, unter denen sich nach einem Klick auf diese ein Textfeld öffnet. <br><br>
+Hinweis: Die Darstellung befindet sich der Produktion und wird zu einem späteren Zeitpunkt implementiert.
+
+Markup:
+<div id="c30559" class="accordion">
+  <div class="accordion__headline js-accordion__headline accordion__headline--collapsed">
+    <h3>Demo</h3>
+  </div>
+  <div class="csc-textpic csc-textpic-intext-right" style="display: none;">
+    <div class="csc-textpic-imagewrap">
+      <dl class="csc-textpic-image csc-textpic-last">
+        <img src="Images/content/dummy-21-9.png" width="420" height="180" alt="Alternative Text">
+        <dd class="csc-textpic-caption" style="width:264px;"></dd>
+      </dl>
+    </div>
+    <div class="csc-textpic-text">
+      <p class="bodytext">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
+      <p class="bodytext">Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vu</p>
+    </div>
+  </div>
+</div>
+
+Styleguide 4.5.0
+*/
+
+/*------------------------------------*\
+    #ACCORDION
+\*------------------------------------*/
+
+.accordion {
+
+  border: 1px solid #b3b3b3;
+  margin: {
+    bottom: 20px;
+    top: -1px;
+  }
+
+  &__headline {
+
+    &:before {
+      content: "";
+      display: block;
+      height: 15px;
+      right: 14px;
+      position: absolute;
+      width: 16px;
+    }
+
+    cursor: pointer;
+    margin: 0;
+    padding: {
+      bottom: 15px;
+      top: 17px;
+    }
+
+    &--collapsed {
+      &:before {
+        background: url("../Images/icon/plus.png") no-repeat center center;
+      }
+    }
+
+    &--expanded {
+      &:before {
+        background: url("../Images/icon/minus.png") no-repeat center center;
+        height: 16px;
+      }
+    }
+  }
+
+    &__title {
+      @extend %disable-heading-styles;
+      font-size: 16px;
+    }
+
+  &__content {
+    display: block;
+    padding: {
+      left: 20px;
+      right: 20px;
+    }
+  }
+  &:last-child {
+    margin: {
+      bottom: 20px;
+    }
+  }
+}
+
+:not(.accordion) + .accordion {
+  margin: {
+    bottom: 0;
+  }
+}
+
+.accordion + :not(.accordion) {
+  margin: {
+    bottom: 20px;
+    top: 20px;
+  }
+}
+
+.accordion + .accordion {
+  margin: {
+    bottom: 0;
+  }
+}
+
+.accordion > * {
+  padding: {
+    left: 20px;
+    right: 20px;
+  }
+}
+
+.accordion {
+  &__headline {
+    padding-right: 40px;
+  }
+}
+
+    /*------------------------------------*\
+        #MOBIL
+    \*------------------------------------*/
+
+  @media #{$mobile} {
+  .accordion {
+
+    &__headline {
+
+      &:before {
+        right: 33px;
+      }
+    }
+  }
+}

@@ -1,0 +1,452 @@
+/*
+Grid - Raster Seitenaufbau
+
+Die Umsetzung der Vorgaben zum generellen Seitenlayout (vgl. https://portal.mytum.de/corporatedesign/stylesweb/index_generelles_seitenlayout) wird durch das 12-spaltige Grundraster des verwendeten ZURB Frameworks bestimmt und ist nicht verbindlich. Die Nutzung anderer Frameworks erlaubt auch andere Aufteilungen mit dann abweichenden Spaltenbreiten. Für www.tum.de wurde umgesetzt:
+
+* Die Website wird mittig im Browserfenster ausgerichtet
+* Innerhalb des Rasters werden die Container ausgerichtet
+* Dem Seitenaufbau liegt die Mindestauflösung von 1280 x 1024 px zu Grunde
+* Die Darstellungsfläche beträgt 1270 px
+* Bei dieser maximalen Breite ergibt sich folgende Verteilung:
+    - Navigation: 186px (2 Spalten)
+    - Content: 727px (7 Spalten)
+    - Randspalte: 294px (3 Spalten)
+    - Abstand jeweils: 2,2 % der Layoutbreite
+
+Styleguide 1.0.0
+*/
+
+/*
+Grid - Container
+
+Exemplarischer Aufbau und mögliche Aufteilung der Spalten.
+
+Markup:
+<div class="container">
+  <div class="row">
+    <div class="twelve columns">
+      12-spalter
+    </div>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      6-spalter
+    </div>
+    <div class="six columns">
+      6-spalter
+    </div>
+  </div>
+  <div class="row">
+    <div class="three columns">
+      3-spalter
+    </div>
+    <div class="three columns">
+      3-spalter
+    </div>
+    <div class="three columns">
+      3-spalter
+    </div>
+    <div class="three columns">
+      3-spalter
+    </div>
+  </div>
+  <div class="row">
+    <div class="two columns">
+      2-spalter
+    </div>
+    <div class="two columns">
+      2-spalter
+    </div>
+    <div class="two columns">
+      2-spalter
+    </div>
+    <div class="two columns">
+      2-spalter
+    </div>
+    <div class="two columns">
+      2-spalter
+    </div>
+    <div class="two columns">
+      2-spalter
+    </div>
+  </div>
+</div>
+
+Styleguide 1.1.0
+*/
+
+/*
+Layout 2 Spalten
+
+Kombination von Gridcontainer 2-Spalter und 10-Spalter
+
+Markup:
+<div class="container">
+  <div class="row">
+    <div class="two columns">
+      Navigationsspalte
+    </div>
+    <div class="ten columns">
+      Inhaltssspalte
+    </div>
+  </div>
+</div>
+
+Styleguide 1.2.0
+*/
+
+/*
+Layout 3 Spalten
+
+Kombination von Gridcontainer 2-Spalter, 7-Spalter und 3-Spalter
+
+Markup:
+<div class="container">
+  <div class="row">
+    <div class="two columns">
+      Navigationsspalte
+    </div>
+    <div class="seven columns">
+      Inhaltssspalte
+    </div>
+    <div class="three columns">
+      Marginalspalte
+    </div>
+  </div>
+</div>
+
+Styleguide 1.3.0
+*/
+
+/*
+Layout 2 Spalten mit 2 weiteren Unterspalten
+
+Kombination von Gridcontainer 2-Spalter, 10-Spalter. Unterteilung des 10-Spalter in zwei 6-Spalter
+
+Markup:
+<div class="container">
+  <div class="row">
+    <div class="two columns">
+      Navigationsspalte
+    </div>
+    <div class="ten columns">
+      Inhaltssspalte
+      <div class="row">
+		<div class="six columns">
+		  Inhaltssspalte
+		</div>
+		<div class="six columns">
+		  Inhaltssspalte
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+Styleguide 1.4.0
+*/
+
+/*
+Layout 3 Spalten mit 2 weiteren Unterspalten
+
+Kombination von Gridcontainer 2-Spalter, 7-Spalter und 3-Spalter. Unterteilung des 7-Spalter in zwei 6-Spalter
+
+Markup:
+<div class="container">
+  <div class="row">
+    <div class="two columns">
+      Navigationsspalte
+    </div>
+    <div class="seven columns">
+      Inhaltssspalte
+      <div class="row">
+		<div class="six columns">
+		  Inhaltssspalte
+		</div>
+		<div class="six columns">
+		  Inhaltssspalte
+		</div>
+      </div>
+    </div>
+    <div class="three columns">
+      Marginalspalte
+    </div>
+  </div>
+</div>
+
+Styleguide 1.5.0
+*/
+
+.container {
+  padding: 0 20px;
+}
+
+.row {
+  @extend .clearfix;
+
+  width: 100%;
+  max-width: 1270px;
+  min-width: 727px;
+  margin: 0 auto;
+
+  .row {
+    min-width: 0;
+  }
+}
+
+.column,
+.columns {
+  margin-left: 2.4%;
+  float: left;
+  min-height: 1px;
+  position: relative;
+}
+
+.column:first-child,
+.columns:first-child {
+  margin-left: 0;
+}
+
+.row {
+  .one.columns {
+    width: 6.13%;
+  }
+
+  .two.columns {
+    width: 14.66%;
+  }
+
+  .three.columns {
+    width: 23.19%;
+  }
+
+  .four.columns {
+    width: 31.72%;
+  }
+
+  .five.columns {
+    width: 40.25%;
+  }
+
+  .six.columns {
+    width: 48.78%;
+  }
+
+  .seven.columns {
+    width: 57.31%;
+  }
+
+  .eight.columns {
+    width: 65.84%;
+  }
+
+  .nine.columns {
+    width: 74.37%;
+  }
+
+  .ten.columns {
+    width: 82.9%;
+  }
+
+  .eleven.columns {
+    width: 91.43%;
+  }
+
+  .twelve.columns {
+    width: 100%;
+  }
+
+  .offset-by-one {
+    margin-left: 10.93%;
+  }
+
+  .offset-by-two {
+    margin-left: 17.06%;
+  }
+
+  .offset-by-three {
+    margin-left: 27.99%;
+  }
+
+  .offset-by-four {
+    margin-left: 36.52%;
+  }
+
+  .offset-by-five {
+    margin-left: 45.05%;
+  }
+
+  .offset-by-six {
+    margin-left: 53.58%;
+  }
+
+  .offset-by-seven {
+    margin-left: 62.11%;
+  }
+
+  .offset-by-eight {
+    margin-left: 70.64%;
+  }
+
+  .offset-by-nine {
+    margin-left: 79.17%;
+  }
+
+  .offset-by-ten {
+    margin-left: 87.7%;
+  }
+
+  .one.centered {
+    margin-left: 47.9%;
+  }
+
+  .two.centered {
+    margin-left: 43.5%;
+  }
+
+  .three.centered {
+    margin-left: 39.2%;
+  }
+
+  .four.centered {
+    margin-left: 34.8%;
+  }
+
+  .five.centered {
+    margin-left: 30.5%;
+  }
+
+  .six.centered {
+    margin-left: 26.1%;
+  }
+
+  .seven.centered {
+    margin-left: 21.8%;
+  }
+
+  .eight.centered {
+    margin-left: 17.4%;
+  }
+
+  .nine.centered {
+    margin-left: 13.1%;
+  }
+
+  .ten.centered {
+    margin-left: 8.7%;
+  }
+
+  .eleven.centered {
+    margin-left: 4.3%;
+  }
+
+  .offset-by-one:first-child {
+    margin-left: 6.13%;
+  }
+
+  .offset-by-two:first-child {
+    margin-left: 14.6%;
+  }
+
+  .offset-by-three:first-child {
+    margin-left: 23.2%;
+  }
+
+  .offset-by-four:first-child {
+    margin-left: 30.93%;
+  }
+
+  .offset-by-five:first-child {
+    margin-left: 40.27%;
+  }
+
+  .offset-by-six:first-child {
+    margin-left: 48.8%;
+  }
+
+  .offset-by-seven:first-child {
+    margin-left: 57.33%;
+  }
+
+  .offset-by-eight:first-child {
+    margin-left: 66.67%;
+  }
+
+  .offset-by-nine:first-child {
+    margin-left: 74.4%;
+  }
+
+  .offset-by-ten:first-child {
+    margin-left: 83%;
+  }
+
+  .offset-by-eleven:first-child {
+    margin-left: 91.47%;
+  }
+}
+
+img,
+object,
+embed,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/*------------------------------------*\
+    #MOBIL
+\*------------------------------------*/
+
+@media #{$mobile} {
+  .row,
+  body,
+  .container {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .row .row {
+    .column,
+    .columns {
+      padding: 0;
+    }
+  }
+
+  .column,
+  .columns {
+    width: auto !important;
+    float: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .column:last-child,
+  .columns:last-child {
+    margin-right: 0;
+  }
+
+  .offset-by-one,
+  .offset-by-two,
+  .offset-by-three,
+  .offset-by-four,
+  .offset-by-five,
+  .offset-by-six,
+  .offset-by-seven,
+  .offset-by-eight,
+  .offset-by-nine,
+  .offset-by-ten,
+  .offset-by-eleven,
+  .centered {
+    margin-left: 0 !important;
+  }
+}

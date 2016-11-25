@@ -1,0 +1,335 @@
+// TODO: Suchleiste in Styleguide integrieren
+
+.cse-open {
+  @extend %disable-default-link-styles, %disable-external-link-styles;
+  @include link-colors($suvagrey, $suvagrey, $suvagrey, $suvagrey, $suvagrey);
+
+  $icon: "icon/search-magnifier.svg";
+  $icon-height: 18px;
+  $icon-width: 18px;
+
+  background: image-url($icon) right center no-repeat;
+  display: inline-block;
+  height: $icon-height;
+  line-height: $icon-height;
+  padding-right: $icon-width + 10px;
+
+  &--no-js {
+    display: none;
+  }
+}
+
+/* #CssTagForm */
+.cse-form {
+  &__outer-container {
+    display: table;
+    width: 100%;
+  }
+
+  &__inner-container {
+    display: table-cell;
+    vertical-align: middle;
+
+    &--on-page {
+      width: 100%;
+    }
+  }
+
+  &__info {
+    @extend %disable-default-link-styles, %disable-external-link-styles;
+    @include link-colors($white, $white, $white, $white, $white);
+
+    font: {
+      size: 12px;
+      weight: bold;
+    }
+  ;
+    margin-right: 10px;
+    white-space: nowrap;
+
+    &:hover,
+    &:active {
+      cursor: pointer;
+
+      & .cse-form__info-text {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &__info-icon {
+    display: inline-block;
+    height: 20px;
+
+    &:before {
+      border: 1px solid $white;
+      border-radius: 50%;
+      content: "i";
+      display: inline-block;
+      padding: 3px;
+      text-align: center;
+      width: 20px;
+    }
+  }
+
+  &__info-text {
+    border-bottom: 1px solid $white;
+    margin-left: 5px;
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+  }
+
+  &__button-submit {
+    background-color: $white;
+    height:28px;
+	padding: 4px 10px;
+    vertical-align: middle;
+
+	.search-bar &{
+	  height:26px;
+	}
+  }
+
+  &__button-close {
+    background-color: transparent;
+    border: none;
+    height: 26px;
+    margin-left: 15px;
+    outline: none;
+    position: relative;
+    width: 13px;
+    vertical-align: middle;
+
+    &:hover,
+    &:active {
+      cursor: pointer;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      background-color: $white;
+      display: block;
+      height: 15px;
+      position: absolute;
+      top: 6px;
+      width: 1px;
+    }
+    &:before {
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+    }
+    &:after {
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    }
+  }
+
+  &__text-container {
+    width: 100%;
+  }
+
+  &__text {
+    font-size: $base-font-size;
+    height: 26px;
+    width: 100%;
+
+    &--on-page {
+      border: {
+        color: $darkgray;
+        style: solid;
+        width: 1px 0 1px 1px;
+      }
+    ;
+      height: 28px;
+      padding: 0 5px;
+    }
+  }
+}
+
+/* Style sheet for CSE form (content area) and results (overrides) */
+
+/*** Search form ***/
+.cseform_content {
+  &--no-js {
+    display: none;
+  }
+}
+
+#cseform_content div.cse_inputbox {
+  padding: 0 5px 0 0;
+  overflow: hidden;
+}
+
+/* Radio buttons */
+#cseform_content p.radiogroup {
+  text-align: right;
+  padding-right: 60px;
+}
+
+#cseform_content input.radiobt {
+  margin-left: 1em;
+}
+
+#cseform_content .cse_more {
+  border-bottom: dotted black 1px;
+  cursor: help;
+}
+
+/*** Result list ***/
+
+#cse .gsc-result-info {
+  font-size: 11px;
+}
+
+#cse .gsc-tabHeader{
+  color:$nightrider;
+  padding:0 2px 4px;
+  margin-right:20px;
+}
+
+/* Inactive tab */
+#cse .gsc-tabHeader.gsc-tabhInactive {
+  background: none;
+  border:none;
+  border-bottom:3px solid transparent;
+}
+
+/* Active tab */
+#cse .gsc-tabHeader.gsc-tabhActive {
+  border:none;
+  border-bottom:3px solid $lochmara;
+  font-weight:bold;
+}
+
+#cse .gsc-tabsArea {
+  border-bottom: 1px solid #d3dee3;
+}
+
+/* Links */
+#cse .gs-result .gs-title,
+#cse .gs-result .gs-title * {
+  color: #0a5096;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+#cse .gs-result .gs-title:hover,
+#cse .gs-result .gs-title:hover * {
+  color: #0a5096;
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+/* Domain */
+#cse .gs-result .gs-visibleUrl {
+  color: #666666;
+  font-size: 11px;
+}
+
+#cse .gs-no-results-result .gs-snippet, #cse .gs-error-result .gs-snippet {
+  background-color: transparent;
+  border: none;
+  margin: 5px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+#cse .gs-no-results-result, #cse .gs-no-results-result .gs-snippet {
+  width: 521px;
+}
+
+/* Pagination */
+#cse .gsc-cursor-page {
+  color: #0a5096;
+  text-decoration: none;
+}
+
+#cse .gsc-cursor-current-page {
+  font-weight: bold;
+}
+
+#cse .gcsc-branding {
+  clear: both;
+}
+
+#cse .gsc-refinementsArea {
+  border-style: none;
+}
+
+#cseform_content {
+  ul {
+    &.radiogroup {
+      overflow: hidden;
+      li {
+        float: left;
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+p.googlecustomsearch {
+  img {
+    padding: 2px 0 0 4px;
+  }
+  text-align: left;
+}
+
+input.googlecustomsearch {
+  &.indexedsearch {
+    background: {
+      position: 3px 5px;
+      repeat: no-repeat;
+    }
+  }
+
+  &.watermark {
+    background-image: image-url('google_custom_search_watermark.gif');
+  }
+}
+
+.gsc-resultsHeader {
+  display: none;
+}
+
+#cse {
+  .gs-image-box {
+    a {
+      background: none;
+    }
+  }
+  .gcsc-branding-clickable {
+    @extend %disable-default-link-styles, %disable-external-link-styles;
+
+    background: none;
+    display: inline-block;
+    width: 51px;
+  }
+}
+
+.gcsc-branding-img-noclear {
+  width: 100%;
+}
+
+.gs-image {
+  @extend %disable-default-link-styles, %disable-external-link-styles;
+}
+
+/*------------------------------------*\
+    #MOBIL
+\*------------------------------------*/
+
+@media #{$mobile} {
+  .cse-form {
+    &__info-text {
+      display: none;
+    }
+  }
+}

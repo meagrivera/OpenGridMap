@@ -1,0 +1,434 @@
+/*
+Container
+
+Das mehrspaltige Grundraster wird durch Containerelemente gegliedert, in denen dann wiederum Inhaltselemente platziert werden können.
+
+Styleguide 2.0.0
+*/
+
+/*
+Header vollständig
+
+Zur Verdeutlichung der Containerstruktur wird hier auf der www.tum.de verwendete Header als Demo eingebunden.
+
+Markup:
+<div class="logo-bar">
+<header class="container">
+		<div class="js-search-bar search-bar">
+	<div class="row">
+		<div class="twelve columns">
+			<form class="cse-form" id="indexedsearch_mobile" method="get" action="http://www.tum.de/suche/">
+	<div class="cse-form__outer-container">
+		<div class="cse-form__inner-container hide">
+			<a class="cse-form__info" href="#">
+				<span class="cse-form__info-icon"></span>
+				<span class="cse-form__info-text">Informationen zur Suche</span>
+			</a>
+		</div>
+		<div class="cse-form__inner-container">
+			<input class="cse-form__input cse-form__button-submit" title="Suche" alt="Suche" id="inputButton" src="http://www.tum.de/typo3conf/ext/in2template/tu/layout/images/icon/search-magnifier.png" type="image">
+		</div>
+		<div class="cse-form__inner-container cse-form__text-container">
+			<input class="js-cse-form-text cse-form__input cse-form__text googlecustomsearch indexedsearch watermark" value="" title="Suche..." name="q" type="text">
+		</div>
+		<div class="cse-form__inner-container">
+			<button class="js-cse-form-button-close cse-form__button-close" type="reset" href="javascript:void(0)"></button>
+		</div>
+	</div>
+	<input name="cx" value="007464603711196986792:tm-egyeaeic" type="hidden">
+	<input name="ie" value="UTF-8" type="hidden">
+	<input name="nojs" value="1" type="hidden">
+	<input name="sites" value="all" type="hidden">
+	<input name="target" value="http://www.tum.de/suche/" class="search_target" type="hidden">
+	<input name="hl" value="de" type="hidden">
+	<noscript>
+		<p class="googlecustomsearch">
+			<img src="/typo3conf/ext/in2template/tu/layout/images/google_custom_search_smwide.gif" alt="Google Custom Search" />
+		</p>
+	</noscript>
+</form>
+		</div>
+	</div>
+</div>
+<div class="js-service-bar service-bar">
+	<div class="row">
+		<div class="twelve columns">
+			<nav class="quicklinks">
+        <ul class="quicklinks__list quicklinks__list--1-level">
+            <li class="quicklinks__item-1-level"><span class="quicklinks__title js-double-tap">Quick-Links</span>
+                <ul class="quicklinks__list quicklinks__list--2-level">
+                    <li><a href="#" target="_blank" class="quicklinks__link">Personensuche</a></li>
+                    <li><a href="#" class="quicklinks__link">IT Dienste und Logins</a></li>
+                    <li><a href="#" target="#" class="quicklinks__link">Kalender</a></li>
+                    <li><a href="#" target="_blank" class="quicklinks__link">MyTUM</a></li>
+                    <li><a href="#" target="_blank" class="quicklinks__link">Dienstleistungs­kompass</a></li>
+                    <li><a href="#" target="_blank" class="quicklinks__link">Raumsuche</a></li>
+                    <li><a href="#" target="_blank" class="quicklinks__link">Presse</a></li>
+                    <li><a href="#" target="_blank" class="quicklinks__link">Corporate Design</a></li>
+                    <li><a href="#" class="quicklinks__link">Datenschutz</a></li>
+                </ul>
+            </li>
+        </ul>
+      </nav>
+      <nav class="language-nav">
+        <ul class="language-nav__list">
+          <li class="language-nav__item"><a href="http://www.tum.de/startseite/" class="language-nav__link language-nav__link--active">de</a></li>
+          <li class="language-nav__item language-nav__item--last"><a href="http://www.tum.de/en/homepage/" class="language-nav__link">en</a></li>
+        </ul>
+      </nav>
+			<a class="js-cse-open cse-open" href="http://www.tum.de/suche/">
+				Suche
+			</a>
+		</div>
+	</div>
+</div>
+		<div class="row">
+	<div class="twelve columns">
+		<div class="logo-bar">
+			<div class="logo-bar__inner">
+				<a href="http://www.tum.de" title="Startseite" target="_self" class="logo-bar__link logo-bar__word-mark-link">
+					<object type="image/svg+xml" data="Images/tum-word-mark.svg" class="logo-bar__img">
+						<img src="Images/tum-word-mark.png" width="208" height="11" alt="TUM – ">
+					</object>
+				</a>
+				<a href="http://www.tum.de" title="Startseite" target="_self" class="logo-bar__link logo-bar__logo-link">
+					<object type="image/svg+xml" data="Images/tum-logo.svg" class="logo-bar__img">
+						<img src="Images/tum-logo.png" width="73" height="38" alt="TUM – ">
+					</object>
+				</a>
+				<span class="main-nav-toggle js-main-nav-toggle">Menü</span>
+			</div>
+		</div>
+	</div>
+</div>
+	</header>
+</div>
+
+Styleguide 2.0.1
+*/
+
+
+/*
+Header
+
+Im Header wird der thematische Bezug zu den Inhalten eines Online-Auftritts abgebildet.
+
+Markup:
+<div class="logo-bar">
+  <div class="logo-bar__inner">
+    <a href="http://www.tum.de" title="Zur Startseite" target="_self" class="logo-bar__link logo-bar__word-mark-link">
+      <object type="image/svg+xml" data="Images/tum-word-mark.svg" class="logo-bar__img">
+        <img src="Images/tum-word-mark.png" width="208" height="11" alt="TUM – ">
+      </object>
+    </a>
+    <a href="http://www.tum.de" title="Zur Startseite" target="_self" class="logo-bar__link logo-bar__logo-link">
+    <object type="image/svg+xml" data="Images/tum-logo.svg" class="logo-bar__img">
+      <img src="Images/tum-logo.png" width="73" height="38" alt="TUM – ">
+    </object>
+    </a>
+  </div>
+</div>
+
+Styleguide 2.2.0
+*/
+
+.logo-bar {
+  padding: 38px 0 28px 0;
+
+  object {
+    pointer-events: none;
+  }
+
+  &__inner {
+    //overflow: hidden;
+    position: relative;
+
+    &:after{
+      content: '';
+      clear: both;
+      display: table;
+    }
+  }
+
+  /* #CssTagLink */
+  &__link {
+    @extend %disable-default-link-styles, %disable-external-link-styles;
+  }
+
+  &__img {
+    display: block;
+  }
+
+  &__word-mark-link {
+    position: absolute;
+    bottom: 0;
+
+    span{
+      color: $lochmara;
+      display: inline-block;
+      line-height: 1.1;
+    }
+  }
+
+  &__logo-link {
+    float: right;
+  }
+}
+
+/*
+Service Container (Funktionsleiste)
+
+Innerhalb dieses Containers werden in standardisierter Reihenfolge Funktionen abgebildet (z.B. Quicklink-Navigation, Sprachvarianten, Suchfeld) Die Funktionsleiste hat optimalerweise eine Höhe von 36px in allen Ansichten.
+Die Funktionsleiste enthält in Desktop-Ansicht auf der rechten Seite Schaltflächen die Sprachen-Schaltfläche (Deutsch/Englisch) und die Schaltfläche der Suchfunktion. Je nach System können auch Schaltflächen für weitere Funktionen in der Funktionsleiste untergebracht werden. Um die weiteren Spezifikationen für die Suchen-Funktion zu erhalten, nehmen Sie bitte Kontakt auf: corporatedesign@tum.de
+
+Markup:
+<div class="service-bar">
+  <div class="row">
+    <!-- Hier die Inhalte wie z. B. Quicklink-Navigation, Sprachumschalter, Suche u. Ä. -->
+  </div>
+</div>
+
+Styleguide 2.1.0
+*/
+
+/*
+Fußzeilen-Container (Footer)
+
+Innerhalb dieses Containers werden die Footerinhalte eingebunden, die für alle Sites außer www.tum.de aus zwei Teilen bestehen: dem seiteneigenen Footer und dem globalen Footer mit der Seitenstrutkur von www.tum.de
+
+Markup:
+<div class="meta-bar">
+  <div class="row">
+    <!-- Hier die Inhalte -->
+  </div>
+</div>
+
+Styleguide 2.4.0
+*/
+
+.meta-bar,
+.service-bar,
+.search-bar,
+.directory-bar {
+  margin: 0 (-$grid-page-gap);
+  padding: {
+    left: $bar-padding-small;
+    right: $bar-padding-small;
+  }
+;
+}
+
+.meta-bar,
+.directory-bar {
+  padding: {
+    bottom: $bar-padding-large;
+    top: $bar-padding-large;
+  }
+;
+}
+
+.meta-bar {
+  background-color: $gainsboro;
+}
+
+.service-bar {
+  background-color: $whitesmoke-darker;
+  font-size: 13px;
+  padding: {
+    bottom: 8px;
+    top: 8px;
+  }
+  text-align: right;
+}
+
+.search-bar {
+  background-color: $lochmara;
+  display: none;
+  padding: {
+    bottom: 12px;
+    top: 12px;
+  }
+;
+}
+
+.directory-bar {
+  background-color: $whitesmoke;
+
+  &--transparent {
+    background-color: transparent;
+  }
+}
+
+/*
+Inhaltsbereich
+
+Im Inhaltsbereich befinden sich die wesentlichen redaktionellen Informationen jeder Seite.
+
+Markup:
+<main class="container content">
+  <div class="row">
+    <!-- Hier die Inhalte -->
+  </div>
+</main>
+
+Styleguide 2.3.0
+*/
+
+.content {
+  margin-bottom: 100px;
+  margin-top: 25px;
+
+  &__faculty{
+    border-top:1px solid $gainsboro;
+    margin-top:0;
+  }
+}
+
+/*
+Sonstiges
+
+Styleguide 11.0
+*/
+
+/*
+No-Script-Hinweis
+
+(JavaScript deaktiveren, um den Hinweis zu sehen.)
+
+Markup:
+<noscript class="noscript">
+  <p class="noscript__text">
+    <strong class="noscript__title">
+      Achtung: JavaScript im Browser deaktiviert
+    </strong>
+    Bitte aktivieren Sie JavaScript um alle Funktionen der Website im vollen Umfang nutzen zu können!
+  </p>
+</noscript>
+
+Styleguide 11.1
+*/
+
+.noscript {
+  background-color: $tahitigold;
+  left: 50px;
+  padding: 10px;
+  position: absolute;
+  top: 120px;
+  width: 300px;
+
+  &--google-cse {
+    width: auto;
+    left: 0;
+    top: 0;
+  }
+
+  &__text,
+  &__title {
+    display: block;
+  }
+
+  &__text {
+    color: $white;
+    margin-bottom: 0;
+  }
+}
+
+/*
+Eingebettetes Video
+
+Markup:
+<div class="embedded-video">
+  <object type="application/x-shockwave-flash"
+          data="https://www.youtube.com/v/Ft416IGZ1qo?fs=1"
+          width="600"
+          height="400"
+          id="mmswf56dd81bce4ab8769027344"
+          style="visibility: visible;">
+            <param name="quality" value="high">
+            <param name="menu" value="false">
+            <param name="allowScriptAccess" value="sameDomain">
+            <param name="allowFullScreen" value="true">
+  </object>
+</div>
+
+Styleguide 11.2
+*/
+
+.embedded-video {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  margin-bottom: 15px;
+
+  iframe,
+  object,
+  embed {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+/*------------------------------------*\
+    #EINFACHE BILDERGALERIE
+\*------------------------------------*/
+
+.simple-gallery {
+  overflow: hidden;
+
+  .csc-textpic-imagerow {
+    clear: none !important;
+    float: left;
+    margin: {
+      bottom: 10px !important;
+      right: 20px;
+    }
+  ;
+
+    .csc-textpic-image {
+      margin: {
+        left: 0 !important;
+        bottom: 10px !important;
+      }
+    }
+  }
+}
+
+.head-element {
+  margin-bottom: 30px;
+}
+
+/*------------------------------------*\
+    #MOBIL
+\*------------------------------------*/
+
+@media #{$mobile} {
+  .meta-bar,
+  .service-bar,
+  .search-bar,
+  .directory-bar {
+    margin: 0;
+    padding: {
+      left: 0;
+      right: 0;
+    }
+  ;
+  }
+
+  .logo-bar {
+    &__img {
+      display: inline-block;
+    }
+
+    &__word-mark-link {
+      display: none;
+    }
+
+    &__logo-link {
+      float: none;
+    }
+  }
+}

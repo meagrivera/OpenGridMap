@@ -1,0 +1,569 @@
+/*
+Typografie
+
+Die Schrift für alle Online-Auftritte der TUM ist Arial. Als Fallback-Schriften sind in dieser Reihenfolge vorgesehen: Helvetica Neue, Helvetica,
+
+Styleguide 6.0.0
+*/
+
+/*
+Überschriften
+
+Markup:
+<h1>Überschrift 1</h1>
+<h1><a href="#">Überschrift 1 (intern verlinkt)</a></h1>
+<h1><a href="" class="link--external">Überschrift 1 (extern verlinkt)</a></h1>
+<h2>Überschrift 2</h2>
+<h2><a href="#">Überschrift 2 (intern verlinkt)</a></h2>
+<h2><a href="" class="link--external">Überschrift 2 (extern verlinkt)</a></h2>
+<h3>Überschrift 3</h3>
+<h3 class="green-subheadline">Überschrift 3 mit grüner Akzentuierung</h3>
+<h3><a href="#">Überschrift 3 (intern verlinkt)</a></h3>
+<h3><a href="" class="link--external">Überschrift 3 (extern verlinkt)</a></h3>
+<h4>Überschrift 4</h4>
+<h4><a href="#">Überschrift 4 (intern verlinkt)</a></h4>
+<h4><a href="" class="link--external">Überschrift 4 (extern verlinkt)</a></h4>
+<h5>Überschrift 5</h5>
+<h5><a href="#">Überschrift 5 (intern verlinkt)</a></h5>
+<h5><a href="" class="link--external">Überschrift 5 (extern verlinkt)</a></h5>
+<h6>Überschrift 6</h6>
+<h6><a href="#">Überschrift 6 (intern verlinkt)</a></h6>
+<h6><a href="" class="link--external">Überschrift 6 (extern verlinkt)</a></h6>
+
+Styleguide 6.1.0
+*/
+
+/*
+#CssTagHeading
+Such nach diesem Tag, um alle von diesen Styles betroffenen Elemente zu finden.
+*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: .75em;
+  line-height: 1.2em;
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold;
+  @extend %header_color
+}
+
+h5 {
+  color: $charcoal;
+  @extend %header_color
+}
+
+h3, h4, h5 {
+  font-size: 16px;
+}
+
+/**
+ * Sollte ein Geschwister-Element von H3 oder H4 gefloatet sein, kann es wegen
+ * der Border-Eigenschaften zu einer ungewollten Darstellung kommen. Deshalb
+ * wird hier von vorne herein ein Umfließen der Elemente verhindert.
+ */
+h3, h4 {
+  clear: both;
+}
+
+h1 {
+  font-size: 35px;
+  margin-bottom: .5em;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  border-bottom: 1px solid $darkgray;
+  padding-bottom: 3px;
+  text-transform: uppercase;
+
+  &.green-subheadline {
+    border-bottom-color: $citrus;
+  }
+}
+
+h4 {
+  border-left: 3px solid $darkgray;
+  padding-left: 10px;
+}
+
+h6 {
+  color: $empress;
+  font-size: 15px;
+  font-style: italic;
+}
+
+%disable-heading-styles {
+  border: {
+    bottom: none;
+    left: none;
+  }
+  clear: none;
+  color: $nightrider;
+  font: {
+    size: $base-font-size;
+    style: normal;
+    weight: bold;
+  }
+  line-height: 1em;
+  margin-bottom: 0;
+  padding: {
+    bottom: 0;
+    left: 0;
+  }
+  text-transform: none;
+}
+
+/*
+Fließtext (Absätze)
+
+Markup:
+<p>Bavaria ipsum dolor sit amet measi naa heid eam Guglhupf Spotzerl, gar nia
+need. No no kumm geh baddscher samma san Kirwa ned woar nackata an, Brezn?
+Hi nomoi wia da Buachbinda Wanninger Edlweiss Biawambn. Bavaria ipsum dolor
+sit amet measi naa heid eam Guglhupf Spotzerl, gar nia need. No no kumm geh
+baddscher samma san Kirwa ned woar nackata an, Brezn? Hi nomoi wia da
+Buachbinda Wanninger Edlweiss Biawambn.</p>
+<p>Bavaria ipsum dolor sit amet measi naa heid eam Guglhupf Spotzerl, gar nia
+need. No no kumm geh baddscher samma san Kirwa ned woar nackata an, Brezn?
+Hi nomoi wia da Buachbinda Wanninger Edlweiss Biawambn. Bavaria ipsum dolor
+sit amet measi naa heid eam Guglhupf Spotzerl, gar nia need. No no kumm geh
+baddscher samma san Kirwa ned woar nackata an, Brezn? Hi nomoi wia da
+Buachbinda Wanninger Edlweiss Biawambn.</p>
+
+Styleguide 6.3.0
+*/
+
+p {
+  line-height: $base-line-height;
+  margin-bottom: 1em;
+}
+
+/*
+Listen
+
+Markup:
+<ol>
+  <li>Listenpunkt 1
+    <ol>
+      <li>Unterpunkt 1</li>
+      <li>Unterpunkt 2</li>
+    </ol>
+  </li>
+  <li>Listenpunkt 2
+    <ul>
+      <li>Unterpunkt 1</li>
+      <li>Unterpunkt 2</li>
+    </ul>
+  </li>
+  <li>Listenpunkt 3</li>
+</ol>
+<ul>
+  <li>Listenpunkt 1
+    <ol>
+      <li>Unterpunkt 1</li>
+      <li>Unterpunkt 2</li>
+    </ol>
+  </li>
+  <li>Listenpunkt 2
+    <ul>
+      <li>Unterpunkt 1</li>
+      <li>Unterpunkt 2</li>
+    </ul>
+  </li>
+  <li>Listenpunkt 3</li>
+</ul>
+
+Styleguide 6.4.0
+*/
+
+/*
+#CssTagList
+Such nach diesem Tag, um alle von diesen Styles betroffenen Elemente zu finden.
+*/
+
+ol,
+ul {
+  line-height: $base-line-height;
+  list-style-position: outside;
+  margin: {
+    bottom: 1em;
+    left: 1.1em;
+  }
+
+  ol,
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ul {
+  list-style-type: square;
+}
+
+%disable-list-styles {
+  list-style-type: none;
+  margin: {
+    bottom: 0;
+    left: 0;
+  }
+;
+}
+
+/*
+Links
+
+Interne Links (innerhalb der Domain) im Fließtext sind unterstrichen mit blauen Hover-Effekt. Weitere Link-Typen sind zusätzlich mit einem Icon gekennzeichnet:
+
+* Externe Links: führen auf andere Domains.
+* Geschützter Link: kennzeichnet einen Inhalt, der nur eingeschränkt zugänglich ist, z.B. mit speziellen Zugangsdaten.
+* Download-Link: kennzeichnet eine Datei zum Herunterladen.
+* Linkstile für Überschriften: Bei den Überschriften H1 bis H6 sind neben den externen Links, geschützten Links und Download-Links auch interne Verlinkungen mit einem Icon gekennzeichnet. Verlinkte Überschriften färben sich ebenfalls blau, wenn man den Mauszeiger auf sie bewegt.
+
+Hinweis: Für die Darstellung auf touch-basierten Geräten sollten die Hover-Effekte von Links deaktiviert werden, da ein Link andernfalls eventuell zweimal angeklickt werden muss, um ihn zu benutzen. Das kann über die CSS Media Queries eingestellt werden, z.B. ab 720px Bildschirmbreite.
+
+Markup:
+<a href="#">Interner Link</a><br />
+<a href="#" class="link--external" target="_blank">Externer Link</a><br />
+<a href="#" class="link--internal" target="_blank">Interner Link mit target "_blank"</a><br />
+<a href="#" class="protected-link">Interner/Externer Link auf geschützte Seite</a><br />
+<a href="mailto:mail@example.org">E-Mail-Link</a>
+<div class="content-box content-box--download-buttons">
+      <a class="content-box__link content-box__link--download" href="?">Download-Link</a>
+</div>
+<h1><a href="#" class="link--internal">Überschrift 1 (intern verlinkt)</a></h1>
+<h1><a href="#" class="link--external">Überschrift 1 (extern verlinkt)</a></h1>
+<h2><a href="#" class="link--internal">Überschrift 2 (intern verlinkt)</a></h2>
+<h2><a href="#" class="link--external">Überschrift 2 (extern verlinkt)</a></h2>
+<h3><a href="#" class="link--internal">Überschrift 3 (intern verlinkt)</a></h3>
+<h3><a href="#" class="link--external">Überschrift 3 (extern verlinkt)</a></h3>
+<h4><a href="#" class="link--internal">Überschrift 4 (intern verlinkt)</a></h4>
+<h4><a href="#" class="link--external">Überschrift 4 (extern verlinkt)</a></h4>
+<h5><a href="#" class="link--internal">Überschrift 5 (intern verlinkt)</a></h5>
+<h5><a href="#" class="link--external">Überschrift 5 (extern verlinkt)</a></h5>
+<h6><a href="#" class="link--internal">Überschrift 6 (intern verlinkt)</a></h6>
+<h6><a href="#" class="link--external">Überschrift 6 (extern verlinkt)</a></h6>
+
+Styleguide 6.5.0
+*/
+
+/*
+#CssTagLink
+Such nach diesem Tag, um alle von diesen Styles betroffenen Elemente zu finden.
+*/
+
+%internal-link {
+  /* Interne Links (#CssTagExtLink) */
+  &.link--internal {
+    @include link-icon(image-url("icon/intlink.svg"), 11px);
+  }
+}
+
+%external-link {
+  /* Interne Links (#CssTagExtLink) */
+  /* Externe Links (#CssTagExtLink) */
+  &[target='_blank'], &.link--external, &[target='_blank'].external-link-new-window {
+    @include link-icon(image-url("icon/extlink.svg"), 10px);
+
+	h2 &:after{
+	  background-position: 0 9px;
+  }
+  }
+}
+
+%download-link {
+  @include link-icon(image-url("icon/download.svg"), 13px, after, true);
+}
+
+a {
+  border-bottom: 1px solid $grey;
+  color: $nightrider;
+  line-height: $base-line-height;
+  outline: none;
+  padding-bottom: $link-padding-bottom;
+  text-decoration: none;
+  transition: all 100ms linear;
+  -webkit-transition: all 100ms linear;
+
+  /* Berücksichtige "LoVe-HAte"-Sortierung */
+  &:hover {
+    border-bottom-color: $royalblue;
+    border-bottom-width: $link-hover-border-bottom-width;
+    color: $lochmara;
+  }
+  &:active {
+    background-color: $lochmara;
+    color: $white;
+  }
+
+  &[href^="mailto"]:after {
+    content: none !important;
+  }
+
+  h1 &, h2 &, h3 &, h4 &, h5 &, h6 & {
+    @include link-icon(image-url("icon/intlink.svg"), 11px);
+
+    border-bottom: none;
+    color: inherit;
+    line-height: inherit;
+    padding-bottom: 0;
+    transition: none;
+
+    &:hover,
+    &:active {
+      color: inherit;
+    }
+    &:active {
+      background: inherit;
+    }
+
+    @extend %external-link;
+    @extend %internal-link;
+  }
+
+  /* Links auf geschützte Seiten sind am hochwertigsten. Das entsprechende Icon
+  hat also Vorrang vor internen und externen Links, auch wenn andere Selektoren
+  (wie bspw. der für externe Links) stärker sind. Deshalb der Einsatz von
+  !important. */
+  &.protected-link:after {
+    background: image-url("icon/lock.svg") bottom 3px right no-repeat;
+    padding-right: 12px !important;
+    content: '';
+    margin-left: 5px;
+    margin-right: 3px;
+  }
+
+
+
+  @extend %internal-link;
+  @extend %external-link;
+}
+
+%disable-default-link-styles {
+  @include link-colors(initial, initial, initial, initial, initial);
+
+  border-bottom: none;
+  line-height: inherit;
+  padding-bottom: 0;
+  transition: none;
+  -webkit-transition: none;
+
+  &:hover {
+    border-bottom-width: 0;
+  }
+
+  &:active {
+    background-color: transparent;
+  }
+}
+
+%disable-external-link-styles {
+  /* #CssTagExtLink */
+  &:after {
+    content: none;
+    display: none;
+  }
+}
+
+/*
+Lead-Text (Introtext)
+
+Dieser Text fungiert als Einleitung und ist 2px größer gesetzt, als die übrige Copy. Bsp: "http://www.tum.de/die-tum/aktuelles/"
+
+Markup:
+<p class="lead-text">
+  Bavaria ipsum dolor sit amet Schbozal Biawambn nois Weiznglasl g’hupft wia
+  gsprunga owe ham barfuaßat. Naa liberalitas Bavariae de noch da Giasinga
+  Heiwog nimmds Xaver is measi Brodzeid an großherzig!
+</p>
+
+Styleguide 6.2.0
+*/
+
+// Achtung: Diese Klasse ist mehrmals im CSS definiert.
+.lead-text {
+  font-size: $base-font-size + 2px;
+  color: $empress;
+  margin-bottom: 2em;
+}
+
+/*------------------------------------*\
+    #SONSTIGES
+\*------------------------------------*/
+
+em,
+i {
+  font-style: italic;
+  line-height: inherit;
+}
+
+strong,
+b {
+  font-weight: bold;
+  line-height: inherit;
+}
+
+small {
+  font-size: 60%;
+  line-height: inherit;
+}
+
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small {
+  color: $grey;
+}
+
+blockquote {
+  line-height: 20px;
+  color: $grey;
+  margin: 0 0 18px;
+  padding: 9px 20px 0 19px;
+  border-left: 1px solid $gainsboro;
+
+  p {
+    line-height: 20px;
+    color: $grey;
+  }
+
+  cite {
+    display: block;
+    font-size: 12px;
+    color: $charcoal;
+
+    &:before {
+      content: "\2014 \0020";
+    }
+
+    a {
+      color: $charcoal;
+
+      &:visited {
+        color: $charcoal;
+      }
+    }
+  }
+}
+
+hr {
+  border: solid $darkgray;
+  border-width: 1px 0 0;
+  clear: both;
+  margin: 12px 0 18px;
+  height: 0;
+}
+
+abbr,
+acronym {
+  text-transform: uppercase;
+  font-size: 90%;
+  color: #222222;
+  border-bottom: 1px solid $gainsboro;
+  cursor: help;
+}
+
+abbr {
+  text-transform: none;
+}
+
+sup, sub {
+  font-size: 75%;
+  position: relative;
+  top: -4px;
+}
+
+sub {
+  top: 4px;
+}
+
+/*------------------------------------*\
+    #DRUCKANSICHT
+\*------------------------------------*/
+
+/**
+ * www.phpied.com/delay-loading-your-print-css/
+ */
+
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -ms-filter: none !important;
+  }
+
+  p a {
+    color: #444444 !important;
+    text-decoration: underline;
+
+    &:visited {
+      color: #444444 !important;
+      text-decoration: underline;
+    }
+
+    &[href]:after {
+      content: " (" attr(href) ")";
+    }
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  a {
+    &[href^="javascript:"]:after,
+    &[href^="#"]:after {
+      content: "";
+    }
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  @page {
+    margin: 0.5cm;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+/*------------------------------------*\
+    #MOBIL
+\*------------------------------------*/
+
+@media #{$mobile} {
+  h1 {
+    font-size: 26px;
+  }
+}

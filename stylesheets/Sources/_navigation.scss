@@ -1,0 +1,1321 @@
+/*
+Navigation
+
+Styleguide 3.0.0
+*/
+
+/*
+Horizontale Navigation (Hauptnavigation www.tum.de)
+
+Ein horizontales Navigationsmenü ist grundsätzlich www.tum.de vorbehalten. Bei anderen Online-Auftritten darf es nur unter bestimmten Bedingungen verwendet werden. Infos über corporatedesign@tum.de
+
+Bei der Darstellung in der mobilen Ansicht fällt das Menü oben weg und wird ersetzt durch eines, das über eine Schaltfläche in der Funktionsleiste ausgeklappt werden kann.
+
+Markup:
+<!-- Dieser Wrapper dient nur der Darstellung im Styleguide -->
+<div style="overflow: hidden; display: inline-block; width: 100%; height: 30px; margin-bottom: 20px; position: relative;">
+  <span class="main-nav-toggle js-main-nav-toggle">Menü</span>
+</div>
+<nav class="main-nav js-main-nav">
+  <ul class="main-nav__list clearfix js-main-nav-list">
+    <li class="main-nav__item-1-level main-nav__item-1-level--hover js-main-nav-item-1-level">
+      <a href="?" class="main-nav__link js-main-nav-link main-nav__link--1-level">Die TUM</a>
+    </li>
+    <li class="main-nav__item-1-level main-nav__item-1-level--hover js-main-nav-item-1-level">
+      <span class="main-nav__toggle main-nav__toggle--1-level js-main-nav-sub-toggle"></span><a href="?" class="main-nav__link js-main-nav-link main-nav__link--1-level main-nav__link--has-submenu main-nav__link--current ">Forschung</a>
+      <ul class="main-nav__list main-nav__list--2-level js-main-nav-list">
+        <li class="main-nav__item-2-level">
+          <span class="main-nav__toggle js-main-nav-sub-toggle"></span><a href="?" class="main-nav__link js-main-nav-link main-nav__link--2-level main-nav__link--has-submenu ">Fakultäten</a>
+          <ul class="main-nav__list main-nav__list--3-level js-main-nav-list">
+            <li class="main-nav__item-3-level">
+              <a href="?" class="main-nav__link js-main-nav-link main-nav__link--3-level">Architektur</a>
+            </li>
+            <li class="main-nav__item-3-level">
+              <a href="?" class="main-nav__link js-main-nav-link main-nav__link--3-level">Bau Geo Umwelt</a>
+            </li>
+          </ul>
+        </li>
+        <li class="main-nav__item-2-level">
+          <a href="?" class="main-nav__link js-main-nav-link main-nav__link--2-level">Forschungs&shy;zentren</a>
+        </li>
+        <li class="main-nav__item-2-level">
+          <a href="?" class="main-nav__link js-main-nav-link main-nav__link--2-level">Exzellenz&shy;initiative</a>
+        </li>
+      </ul>
+    </li>
+    <li class="main-nav__item-1-level main-nav__item-1-level--hover js-main-nav-item-1-level">
+      <a href="?" class="main-nav__link js-main-nav-link main-nav__link--1-level">Studium</a>
+    </li>
+  </ul>
+</nav>
+
+Styleguide 3.1.0
+*/
+
+.main-nav {
+  border-bottom: 1px solid $gainsboro;
+  margin: {
+    bottom: 10px;
+    top: 20px;
+  }
+;
+
+  /* #CssTagList */
+  &__list {
+    @extend %disable-list-styles;
+
+    &--2-level {
+      background-color: $white;
+      border: 1px solid $gainsboro;
+      border-top: none;
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+	  min-width:150px;
+	  opacity: 0;
+      padding: {
+        left: 10px;
+        right: 10px;
+        top: 15px;
+      }
+      position: absolute;
+	  transition: opacity 0.25s ease;
+	  visibility: hidden;
+	  white-space:nowrap;
+      z-index: $z-index-hover-menu;
+
+      .main-nav__item-1-level--hover:hover & {
+		opacity: 1;
+		visibility: visible;
+      }
+
+	  .main-nav__item-1-level:last-child & {
+		@media screen and (min-width : 800px) and (max-width: 840px){
+		  min-width:0;
+		  white-space:normal;
+		  width: 100%;
+		}
+	  }
+    }
+
+    &--3-level,
+    &--4-level {
+      display: none;
+    }
+  }
+
+  &__item-1-level {
+    float: left;
+    position: relative;
+  }
+  &__item-2-level {
+    margin-bottom: 10px;
+  }
+
+  /* #CssTagLink */
+  &__link {
+    @extend %disable-default-link-styles;
+    @include link-colors($nightrider, $nightrider, $nightrider, $nightrider, $nightrider);
+
+    border-bottom: solid transparent;
+    display: inline-block;
+
+    &--1-level {
+      border-bottom-width: 3px !important;
+      font-weight: bold;
+      height: 30px;
+      min-width: 120px;
+      padding-right: 50px;
+      text-transform: uppercase;
+    }
+
+    &--2-level {
+      border-bottom-width: 1px !important;
+      font-size: 13px;
+      line-height: 1.4em;
+    }
+
+    &--active,
+    &--current {
+      border-bottom-color: $lochmara;
+    }
+
+    &:hover,
+    &:active {
+      border-bottom-color: $verylightgrey;
+    }
+  }
+
+  &__toggle {
+    background: image-url("icon/nav-plus-2x.png") center center no-repeat;
+    border-left: 1px solid $suvagrey;
+    cursor: pointer;
+    display: none;
+    float: right;
+    height: 24px;
+    position: absolute;
+    right: 0;
+    top: 8px;
+    width: 55px;
+    z-index: $z-index-main-nav-toggle;
+
+    &--minus {
+      background: image-url("icon/nav-minus-2x.png") center center no-repeat;
+    }
+
+    &--1-level {
+      top: 15px;
+    }
+  }
+}
+
+.main-nav-toggle {
+  @extend %disable-default-link-styles;
+
+  bottom: 4px;
+  cursor: pointer;
+  color:$nightrider;
+  display: none;
+  font: {
+    size: 16px;
+    weight: bold;
+  }
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+
+  &:before {
+    border: {
+      bottom: 4px solid $nightrider;
+      top: 12px double $nightrider;
+    }
+    content: "";
+    height: 20px;
+    left: -38px;
+    position: absolute;
+    top: -2px;
+    width: 28px;
+  }
+
+  &:hover{
+	color:$nightrider;
+  }
+}
+
+/*
+Vertikale Navigation (Unternavigation www.tum.de ansonsten Hauptnavigation)
+
+Im Navigationsmenü links vom Inhaltsbereich können Menüpunkte bis zur dritten Ebene abgebildet werden. Im Beispiel 3 Ebenen mit hervorgehobener Menüebene (fett) und aktueller Seite (blauer Balken links). Externe Links werden mit dem entsprechenden Icon markiert.
+
+Bei der Darstellung in der mobilen Ansicht fällt das Navigationsmenü links weg und wird ersetzt durch eines, das über eine Schaltfläche in der Funktionsleiste ausgeklappt werden kann.
+
+Markup:
+<nav class="subnav">
+  <ul class="subnav__list">
+    <li class="subnav__item">
+      <a href="#" class="subnav__link subnav__link--has-submenu subnav__link--active">Seite 1</a>
+      <ul class="subnav__submenu subnav__submenu--2-level">
+        <li class="subnav__item">
+          <a href="#" class="subnav__link subnav__link--has-submenu subnav__link--active subnav__link--submenu">Seite 1.1</a>
+          <ul class="subnav__submenu subnav__submenu--3-level">
+            <li class="subnav__item">
+              <a href="#" class="subnav__link subnav__link">Seite 1.1.1</a>
+            </li>
+            <li class="subnav__item">
+              <a href="#" class="subnav__link subnav__link--active subnav__link--current">Seite 1.1.2</a>
+            </li>
+          </ul>
+        </li>
+        <li class="subnav__item">
+          <a href="" class="subnav__link">Seite 1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="subnav__item">
+      <a href="#" class="subnav__link subnav__link--has-submenu">Seite 2.0</a>
+    </li>
+  </ul>
+</nav>
+
+Styleguide 3.2.0
+*/
+
+.subnav {
+  word-wrap: break-word;
+  /* #CssTagList */
+  &__list {
+    @extend %disable-list-styles;
+
+    background-color: $gainsboro;
+    padding-bottom: 9px;
+    padding-top: 6px;
+  }
+
+  /* #CssTagLink */
+  &__link {
+    @extend %disable-default-link-styles;
+    @include link-colors($nightrider, $nightrider, $nightrider, $nightrider, $nightrider);
+
+    display: block;
+    font-size: 14px;
+    line-height: 1.2em;
+    padding: 7px 10px 6px 12px;
+    position: relative;
+	transition: background-color 0.15s ease-in;
+
+    &--has-submenu {
+      &:after {
+        background-image: image-url('icon/nav-plus.svg');
+
+        content: "";
+        display: block;
+        height: 7px;
+        margin-top: -4px;
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        width: 7px;
+      }
+
+      &.subnav__link--active:after {
+        background-image: image-url('icon/nav-minus.svg');
+        height: 1px;
+      }
+    }
+
+    &:hover,
+    &:active {
+      background-color: $whitesmoke;
+
+      .subnav__submenu & {
+        background-color: $gainsboro;
+      }
+    }
+
+    .subnav__submenu--3-level & {
+      padding-left: 16px;
+    }
+
+    &--active {
+      font-weight: bold;
+    }
+
+    &--current {
+      border-left: 3px solid $lochmara;
+      padding-left: 9px !important;
+
+      .subnav__submenu--3-level & {
+        padding-left: 13px !important;
+      }
+    }
+  }
+
+  &__submenu {
+    @extend %disable-list-styles;
+
+    &--2-level {
+      background-color: $whitesmoke;
+      margin-bottom: 4px;
+      padding-bottom: 4px;
+      padding-top: 8px;
+    }
+
+    &--3-level {
+      background-color: $white;
+    }
+  }
+}
+
+/*
+Quicklink Navigation
+
+Die Quicklink-Navigation wird nur in besonderen Fällen verwendet. Sie befindet sich als ausklappbares Menü in der Funktionsleiste. In diesem Menü werden Links zu besonders häufig besuchten Seiten platziert, so dass diese leichter gefunden und schneller erreicht werden können. Infos unter corporatedesign@tum.de.
+
+Markup:
+<nav class="quicklinks">
+  <ul class="quicklinks__list quicklinks__list--1-level">
+    <li class="quicklinks__item-1-level">
+      <span class="quicklinks__title js-double-tap">Quick-Links</span>
+      <ul class="quicklinks__list quicklinks__list--2-level">
+        <li>
+          <a href="?" class="quicklinks__link">Menüpunkt</a>
+        </li>
+        <li>
+          <a href="?" class="quicklinks__link">Klick mich</a>
+        </li>
+        <li>
+          <a href="?" class="quicklinks__link">Ich bin ein Link</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+Styleguide 3.3.0
+*/
+
+.quicklinks {
+  display: inline-block;
+
+  &__title {
+    $image-width: 12px;
+    background: image-url("icon/arrow_simple_down.svg") center right no-repeat;
+    color: $suvagrey;
+    cursor: default;
+    display: block;
+    padding-right: 8px + $image-width;
+    text-align: right;
+  }
+
+  /* #CssTagList */
+  &__list {
+    @extend %disable-list-styles;
+
+    &--1-level {
+      margin-right: 25px;
+    }
+
+    &--2-level {
+      background-color: $whitesmoke-darker;
+      left: -9999px;
+      line-height: 2em;
+      overflow: hidden;
+      padding: 0 25px;
+      position: absolute;
+      text-align: right;
+      white-space: nowrap;
+      z-index: $z-index-hover-menu;
+    }
+  }
+
+  &__item-1-level {
+    position: relative;
+
+    &:hover {
+      .quicklinks__list--2-level {
+        left: auto;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        right: -25px;
+      }
+    }
+  }
+
+  /* #CssTagLink */
+  &__link {
+    @extend %disable-default-link-styles;
+    @include link-colors($empress, $empress, $empress, $empress, $empress);
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}
+
+/*
+Zielgruppen-Navigation auf Fakultätsunterseiten
+
+Markup:
+<nav class="audience hide-on-mobile">
+    <ul class="audience-list">
+        <li class="audience-list-item"><a class="audience-link" href="#">Zielgruppe 1</a></li>
+        <li class="audience-list-item"><a class="audience-link" href="#">Zielgruppe 2</a></li>
+        <li class="audience-list-item"><a class="audience-link" href="#">Zielgruppe 3</a></li>
+        <li class="audience-list-item"><a class="audience-link" href="#">Zielgruppe 4</a></li>
+        <li class="audience-list-item"><a class="audience-link" href="#">Zielgruppe 5</a></li>
+    </ul>
+</nav>
+
+Styleguide 3.4.1
+*/
+
+.audience{
+  float: left;
+
+  &:after{
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+.audience-list{
+  margin:0;
+}
+
+.audience-list-item{
+  display: inline-block;
+  border-right: 1px solid $suvagrey;
+
+  &:last-child{
+    border-right:none;
+  }
+
+  &:first-child .audience-link{
+    padding-left: 0;
+  }
+}
+
+.audience-link{
+  border-bottom:none;
+  color:$suvagrey;
+  display: block;
+  font-weight:bold;
+  padding: 0 8px;
+  text-decoration: none;
+
+}
+
+/*
+Sprachumschalter
+
+Markup:
+<nav class="language-nav">
+  <ul class="language-nav__list">
+    <li class="language-nav__item">
+      <a href="?" class="language-nav__link language-nav__link--active">de</a>
+    </li>
+    <li class="language-nav__item language-nav__item--last">
+      <a href="?" class="language-nav__link">en</a>
+    </li>
+  </ul>
+</nav>
+
+Styleguide 3.4.0
+*/
+
+.language-nav {
+  display: inline-block;
+  margin-right: 25px;
+
+  /* #CssTagList */
+  &__list {
+    @extend %disable-list-styles;
+  }
+
+  &__item {
+    display: inline-block;
+
+    &:after {
+      content: '';
+      border-right: 1px solid $suvagrey;
+      margin: 0 3px;
+    }
+
+    &:last-child:after {
+      display: none;
+    }
+
+    &--no-translation {
+      color: $suvagrey;
+      opacity: .5;
+    }
+  }
+
+  /* #CssTagLink */
+  &__link {
+    @extend %disable-default-link-styles, %disable-external-link-styles;
+    @include link-colors($suvagrey, $suvagrey, $suvagrey, $suvagrey, $suvagrey);
+
+    &--active {
+      font-weight: bold;
+    }
+  }
+}
+
+/*
+Breadcrumb
+
+Die horizontale Breadcrumb-Navigation befindet sich zwischen Inhaltsbereich und Header. Sie bildet alle Navigationsebenen ab, die zur aktuell angezeigten Seite geführt haben. Alle Ebenen dieser Navigation sind verlinkt, so dass schnell zu anderen Ebenen (zurück) navigiert werden kann. Sie kommt in allen Ansichten vor.
+
+Markup:
+<nav class="breadcrumb">
+  <ol class="breadcrumb__list">
+    <li class="breadcrumb__item">
+      <a href="?" class="breadcrumb__link">Startseite</a>
+    </li>
+    <li class="breadcrumb__item">
+      <a href="?" class="breadcrumb__link">Seite</a>
+    </li>
+    <li class="breadcrumb__item breadcrumb__item--last">
+      <a href="?" class="breadcrumb__link">Unterseite</a>
+    </li>
+  </ol>
+</nav>
+
+Styleguide 3.5.0
+*/
+
+.breadcrumb {
+  font-size: 11px;
+
+  /* #CssTagList */
+  &__list {
+    @extend %disable-list-styles;
+
+    line-height: 1em;
+    overflow: hidden;
+  }
+
+  &__item {
+    float: left;
+    &:after {
+      content: "\00a0›\00a0";
+    }
+    &--last {
+      &:after {
+        content: none;
+      }
+    }
+  }
+
+  /* #CssTagLink */
+  &__link {
+    @extend %disable-default-link-styles, %disable-external-link-styles;
+    @include link-colors($empress, $empress, $empress, $empress, $empress);
+
+    display: inline-block;
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+
+  .content__faculty &{
+    margin: 10px 0 20px;
+  }
+}
+
+/*------------------------------------*\
+    #MOBIL
+\*------------------------------------*/
+
+@media #{$mobile} {
+  .breadcrumb {
+    display: none;
+  }
+}
+
+/*
+Verzeichnis-Navigation
+
+Die Verzeichnis Navigation wird auf der Homepage von www.tum.de eingesetzt und ist ansonsten für keine andere Website der TUM vorgesehen. Sämtliche Primär und Sekundärnavigationspunkte erscheinen jedoch im Footerbereich aller TUM-Websites (vgl. 3.7)
+
+Markup:
+<div class="directory-bar directory-bar--transparent">
+  <div class="row">
+    <div class="twelve columns">
+      <nav class="directory-nav directory-nav--extended">
+        <ul class="directory-nav__list">
+          <li class="js-directory-nav-item directory-nav__item directory-nav__item--first directory-nav__item--1-level two columns directory-nav__item--is-active">
+            <span class="js-directory-nav-toggle directory-nav__toggle"></span><a href="?" class="directory-nav__link directory-nav__link--1-level">Seite 1</a>
+            <ul class="js-directory-nav-submenu directory-nav__list directory-nav__list--2-level" style="overflow: hidden; display: block;">
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 1.1</a>
+              </li>
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 1.2</a>
+              </li>
+            </ul>
+          </li>
+          <li class="js-directory-nav-item directory-nav__item directory-nav__item--1-level two columns">
+            <span class="js-directory-nav-toggle directory-nav__toggle"></span><a href="?" class="directory-nav__link directory-nav__link--1-level">Seite 2</a>
+            <ul class="js-directory-nav-submenu directory-nav__list directory-nav__list--2-level">
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 2.1</a>
+              </li>
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 2.2</a>
+              </li>
+            </ul>
+          </li>
+          <li class="js-directory-nav-item directory-nav__item directory-nav__item--1-level two columns">
+            <span class="js-directory-nav-toggle directory-nav__toggle"></span><a href="?" class="directory-nav__link directory-nav__link--1-level">Seite 3</a>
+            <ul class="js-directory-nav-submenu directory-nav__list directory-nav__list--2-level">
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 3.1</a>
+              </li>
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 3.2</a>
+              </li>
+            </ul>
+          </li>
+          <li class="js-directory-nav-item directory-nav__item directory-nav__item--1-level two columns">
+            <span class="js-directory-nav-toggle directory-nav__toggle"></span><a href="?" class="directory-nav__link directory-nav__link--1-level">Seite 4</a>
+            <ul class="js-directory-nav-submenu directory-nav__list directory-nav__list--2-level">
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 4.1</a>
+              </li>
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 4.2</a>
+              </li>
+            </ul>
+          </li>
+          <li class="js-directory-nav-item directory-nav__item directory-nav__item--1-level two columns">
+            <span class="js-directory-nav-toggle directory-nav__toggle"></span><a href="?" class="directory-nav__link directory-nav__link--1-level">Seite 5</a>
+            <ul class="js-directory-nav-submenu directory-nav__list directory-nav__list--2-level">
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 5.1</a>
+              </li>
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 5.2</a>
+              </li>
+            </ul>
+          </li>
+          <li class="js-directory-nav-item directory-nav__item directory-nav__item--1-level two columns">
+            <span class="js-directory-nav-toggle directory-nav__toggle"></span><a href="?" class="directory-nav__link directory-nav__link--1-level">Seite 6</a>
+            <ul class="js-directory-nav-submenu directory-nav__list directory-nav__list--2-level">
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 6.1</a>
+              </li>
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 6.2</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+Styleguide 3.6.0
+*/
+
+.directory-nav {
+  &--extended {
+    .directory-nav__toggle {
+      display: none;
+    }
+
+    .directory-nav__item--1-level:not(.directory-nav__item--first) {
+      background: image-url("border.png") 5% 0 repeat-y transparent;
+      box-sizing: content-box;
+      margin-bottom: -10000px;
+      margin-left: 0;
+      padding-bottom: 10000px;
+      padding-left: 2.4%;
+    }
+
+    .directory-nav__link--1-level {
+      @include link-colors($lochmara, $lochmara, $lochmara, $lochmara, $lochmara);
+    }
+  }
+
+  /* #CssTagList */
+  &__list {
+    @extend %disable-list-styles;
+
+    overflow: hidden;
+  }
+
+  &__item {
+    &--2-level {
+      margin-bottom: 5px;
+    }
+  }
+
+  /* #CssTagLink */
+  &__link {
+    @extend %disable-default-link-styles;
+    @include link-colors($nightrider, $nightrider, $nightrider, $nightrider, $nightrider);
+
+    display: inline-block;
+    line-height: 1.3em;
+
+    &--1-level {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 1em;
+      text-transform: uppercase;
+    }
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+/*
+Globale Footernavigation
+
+Der globale Footer bildet die Seitenstruktur von www.tum.de ab und wird auf jedem Onlineauftritt der TUM in gleicher Form am Ende jeder Seite eingefügt. Er ist auch in den Ansichten auf mobilen Geräten vorhanden. Sie erhalten die XML Datei für den globalen Footer bei corporatedesign@tum.de.
+
+Markup:
+<div class="directory-bar">
+  <div class="row">
+    <div class="twelve columns">
+      <nav class="directory-nav">
+        <ul class="directory-nav__list">
+          <li class="js-directory-nav-item directory-nav__item directory-nav__item--first directory-nav__item--1-level two columns directory-nav__item--is-active">
+            <span class="js-directory-nav-toggle directory-nav__toggle"></span><a href="?" class="directory-nav__link directory-nav__link--1-level">Seite 1</a>
+            <ul class="js-directory-nav-submenu directory-nav__list directory-nav__list--2-level" style="overflow: hidden; display: block;">
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 1.1</a>
+              </li>
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 1.2</a>
+              </li>
+            </ul>
+          </li>
+          <li class="js-directory-nav-item directory-nav__item directory-nav__item--1-level two columns">
+            <span class="js-directory-nav-toggle directory-nav__toggle"></span><a href="?" class="directory-nav__link directory-nav__link--1-level">Seite 2</a>
+            <ul class="js-directory-nav-submenu directory-nav__list directory-nav__list--2-level">
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 2.1</a>
+              </li>
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 2.2</a>
+              </li>
+            </ul>
+          </li>
+          <li class="js-directory-nav-item directory-nav__item directory-nav__item--1-level two columns">
+            <span class="js-directory-nav-toggle directory-nav__toggle"></span><a href="?" class="directory-nav__link directory-nav__link--1-level">Seite 3</a>
+            <ul class="js-directory-nav-submenu directory-nav__list directory-nav__list--2-level">
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 3.1</a>
+              </li>
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 3.2</a>
+              </li>
+            </ul>
+          </li>
+          <li class="js-directory-nav-item directory-nav__item directory-nav__item--1-level two columns">
+            <span class="js-directory-nav-toggle directory-nav__toggle"></span><a href="?" class="directory-nav__link directory-nav__link--1-level">Seite 4</a>
+            <ul class="js-directory-nav-submenu directory-nav__list directory-nav__list--2-level">
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 4.1</a>
+              </li>
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 4.2</a>
+              </li>
+            </ul>
+          </li>
+          <li class="js-directory-nav-item directory-nav__item directory-nav__item--1-level two columns">
+            <span class="js-directory-nav-toggle directory-nav__toggle"></span><a href="?" class="directory-nav__link directory-nav__link--1-level">Seite 5</a>
+            <ul class="js-directory-nav-submenu directory-nav__list directory-nav__list--2-level">
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 5.1</a>
+              </li>
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 5.2</a>
+              </li>
+            </ul>
+          </li>
+          <li class="js-directory-nav-item directory-nav__item directory-nav__item--1-level two columns">
+            <span class="js-directory-nav-toggle directory-nav__toggle"></span><a href="?" class="directory-nav__link directory-nav__link--1-level">Seite 6</a>
+            <ul class="js-directory-nav-submenu directory-nav__list directory-nav__list--2-level">
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 6.1</a>
+              </li>
+              <li class="directory-nav__item directory-nav__item--2-level">
+                <a href="?" class="directory-nav__link">Unterseite 6.2</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+Styleguide 3.7.0
+*/
+
+
+
+/*
+Meta-Navigation (Footer)
+
+Links im seiteneigenen Footer mit Verlinkungen zu Angaben über den Datenschutz und zum Impressum der inhaltlich verantwortlichen Einrichtung. Darüber hinaus im globalen Footer mit Links zu Jobs, Feedback und Presse
+
+Markup:
+<!-- Clearfix-Wrapper dient nur der Darstellung im Styleguide -->
+<div class="clearfix">
+  <nav class="meta-nav">
+    <ul class="meta-nav__list">
+      <li class="meta-nav__item">
+        <a href="?" class="meta-nav__link">Seite 1</a>
+      </li>
+      <li class="meta-nav__item">
+        <a href="?" class="meta-nav__link">Seite 2</a>
+      </li>
+      <li class="meta-nav__item">
+        <a href="?" class="meta-nav__link">Seite 3</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+Styleguide 3.8.0
+*/
+
+.meta-nav {
+  display: inline-block;
+  float: left;
+  font-size: 12px;
+
+  &--bold {
+    font-weight: bold;
+  }
+
+  /* #CssTagList */
+  &__list {
+    @extend %disable-list-styles;
+  }
+
+  &__item {
+    display: inline-block;
+    margin-right: 2em;
+  }
+
+  /* #CssTagLink */
+  &__link {
+    @extend %disable-default-link-styles;
+    @include link-colors($nightrider, $nightrider, $nightrider, $nightrider, $nightrider);
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}
+
+/*------------------------------------*\
+    #MOBIL
+\*------------------------------------*/
+
+@media #{$mobile} {
+  .meta-nav {
+    &__item {
+      padding: {
+        bottom: 20px;
+      }
+    }
+  }
+}
+
+/*
+Social-Media-Navigation
+
+Die Social-Media-Navigation wird im globalen Footerbereich mit der Seitenstruktur von www.tum.de eingesetzt.
+
+Markup:
+<!-- Clearfix-Wrapper dient nur der Darstellung im Styleguide -->
+<div class="clearfix">
+  <nav class="social-nav">
+    <ul class="social-nav__list">
+      <li class="social-nav__item">
+        <a href="https://www.facebook.com/TU.Muenchen" target="_blank" class="social-nav__link facebook icon-facebook icon-sprite" title="Facebook">&nbsp;</a>
+      </li>
+      <li class="social-nav__item">
+        <a href="https://twitter.com/TU_Muenchen" target="_blank" class="social-nav__link twitter icon-twitter icon-sprite" title="Twitter">&nbsp;</a>
+      </li>
+      <li class="social-nav__item">
+        <a href="http://www.youtube.com/TUMuenchen1" target="_blank" class="social-nav__link social-nav__link--last social-nav__link--youtube youtube icon-youtube icon-sprite" title="YouTube">&nbsp;</a>
+      </li>
+      <li class="social-nav__item">
+        <a href="#" target="FEopenLink" onclick="vHWin=window.open('#','FEopenLink','scrollbars=1,resizable=0,width=800,height=600');vHWin.focus();return false;" class="social-nav__link social-nav__link--print icon-print icon-sprite">Seite drucken</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+Styleguide 3.9.0
+*/
+
+.social-nav {
+  display: inline-block;
+  float: right;
+  font-size: 12px;
+
+  /* #CssTagList */
+  &__list {
+    @extend %disable-list-styles;
+  }
+
+  &__item {
+    display: inline-block;
+  }
+
+  /* #CssTagLink */
+  &__link {
+    @extend %disable-default-link-styles, %disable-external-link-styles;
+    @include link-colors($nightrider, $nightrider, $nightrider, $nightrider, $nightrider);
+
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-right: 10px;
+    //width: image-width("icon/facebook.png");
+    width: 16px;
+
+    &--last {
+      margin-right: 0;
+    }
+
+    &.facebook, &--facebook {
+      background-image: image-url("icon/facebook.svg");
+    }
+
+    &.twitter, &--twitter {
+      background-image: image-url("icon/twitter.svg");
+    }
+
+    &.youtube, &--youtube {
+      background-image: image-url("icon/youtube.svg");
+      width: 20px;
+    }
+
+    &--print {
+      background-image: image-url("icon/print.svg");
+      margin-left: 30px;
+      padding-left: 30px;
+      width: auto;
+    }
+  }
+}
+
+.partners-of-excellence-link {
+  @extend %disable-default-link-styles, %disable-external-link-styles;
+  @include link-colors($nightrider, $nightrider, $nightrider, $nightrider, $nightrider);
+  background-image: url("../Images/icon/partners-of-excellence.svg");
+  background-repeat: no-repeat;
+  background-size: 28px;
+  display: block;
+  font-size: 11px;
+  line-height: $base-line-height;
+  margin-top: 30px;
+  //min-height: image-height("icon/partners-of-excellence.png");
+  min-height: 48px;
+  //padding-left: image-width("icon/partners-of-excellence.png") + 20px;
+  padding-left: 50px;
+
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
+
+  &__title {
+    display: block;
+    font-weight: bold;
+  }
+}
+
+/*
+Back-To-Top-Link
+
+Markup:
+<div class="back-to-top">
+  <a href="#" title="nach oben" class="back-to-top__link"></a>
+</div>
+
+Styleguide 3.10.0
+*/
+
+.back-to-top {
+  margin: {
+    bottom: 20px;
+    top: 20px;
+  }
+  overflow: hidden;
+
+  &__link {
+    @extend %disable-default-link-styles, %disable-external-link-styles;
+
+    border: 8px solid transparent !important;
+    border-bottom-color: $nightrider !important;
+    border-top: none !important;
+    float: right;
+  }
+}
+
+/*------------------------------------*\
+    #MOBIL
+\*------------------------------------*/
+
+@media #{$mobile} {
+  /*------------------------------------*\
+      #HAUPTNAVIGATION
+  \*------------------------------------*/
+
+  .main-nav {
+    border: {
+      bottom: none;
+      top: 1px solid $gainsboro;
+    }
+  ;
+    display: none;
+    margin: {
+      bottom: 1em;
+      top: 0;
+    }
+  ;
+
+    &__list {
+      &--2-level {
+        border: none;
+        border-top: 1px solid $gainsboro;
+        box-shadow: none;
+		opacity: 1;
+        padding: {
+          left: 0;
+          right: 0;
+          top: 0;
+        }
+      ;
+        position: static;
+	  	visibility: visible;
+      }
+
+      &--2-level,
+      &--3-level,
+      &--4-level {
+        display: none;
+      }
+    }
+
+    &__item-1-level,
+    &__item-2-level,
+    &__item-3-level,
+    &__item-4-level {
+      position: relative;
+    }
+
+    &__item-2-level {
+      margin-bottom: 0;
+      padding-left: $grid-page-gap*2;
+    }
+    &__item-3-level,
+    &__item-4-level {
+      padding-left: $grid-page-gap;
+    }
+
+    &__item-1-level {
+      border-bottom: 1px solid $gainsboro;
+      float: none;
+    }
+
+    &__link {
+      border-bottom: none;
+      display: block;
+      padding: {
+        bottom: .75em;
+        top: .75em;
+      }
+    ;
+
+      &--1-level {
+        font-size: 16px;
+        height: auto;
+        padding: {
+          bottom: 1em;
+          left: $grid-page-gap;
+          right: 0;
+          top: 1em;
+        }
+        text-transform: none;
+
+        &.main-nav__link--current {
+          border-left: 3px solid $lochmara;
+        }
+      }
+
+      &--2-level {
+        font-size: inherit;
+      }
+
+      &--2-level,
+      &--3-level,
+      &--4-level {
+        &,
+        &:hover,
+        &:active {
+          border-bottom: 1px solid $gainsboro;
+        }
+
+        &.main-nav__link--current {
+          position: relative;
+
+          &:before {
+            background-color: $lochmara;
+            bottom: 0;
+            content: "";
+            display: block;
+            height: 24px;
+            left: -8px;
+            margin-top: -12px;
+            position: absolute;
+            top: 50%;
+            width: 3px;
+          }
+        }
+      }
+    }
+
+    &__toggle {
+      display: inline-block;
+    }
+  }
+
+  .main-nav-toggle {
+    display: inline-block;
+  }
+
+  .main-nav__item--lastelement {
+    > ul {
+      li:last-child {
+        > a {
+          border-bottom-style: none;
+        }
+      }
+    }
+  }
+
+  /*------------------------------------*\
+      #VERZEICHNIS-NAVIGATION
+  \*------------------------------------*/
+
+  .directory-nav {
+    &--extended {
+      margin: {
+        bottom: -$bar-padding-large;
+        top: -$bar-padding-large;
+      }
+    ;
+
+      .directory-nav {
+        &__list {
+          margin: {
+            left: -$grid-page-gap;
+            right: -$grid-page-gap;
+          }
+        ;
+
+          &--2-level {
+            display: none;
+          }
+        }
+
+        &__item {
+          padding-left: $grid-page-gap !important;
+
+          /**
+           * Aus dem Plus- ein Minuszeichen machen indem der vertikale
+           * Strich ausgeblendet wird.
+           */
+          &--is-active {
+            .directory-nav__toggle:before {
+              content: none;
+            }
+          }
+
+          &--1-level {
+            border-bottom: 1px solid $gainsboro;
+            float: none;
+            width: auto !important;
+
+            &:not(.directory-nav__item--first) {
+              background: none;
+              margin: {
+                bottom: 0;
+                top: 0;
+              }
+            ;
+              padding-bottom: 0;
+            }
+          }
+        }
+
+        &__toggle {
+          border-left: 1px solid #808080;
+          cursor: pointer;
+          display: inline-block;
+          float: right;
+          height: 24px;
+          margin-top: 10px;
+          padding-left: 30px;
+          position: relative;
+
+          &:before,
+          &:after {
+            background-color: #666666;
+            content: "";
+            height: 14px;
+            position: absolute;
+            width: 14px;
+          }
+
+          &:before {
+            left: 21px;
+            top: 5px;
+            width: 1px;
+          }
+
+          &:after {
+            height: 1px;
+            left: 15px;
+            top: 11px;
+          }
+        }
+
+        &__link {
+          display: block;
+          font-size: 16px;
+          margin-bottom: 0;
+          padding: {
+            bottom: .75em;
+            top: .75em;
+          }
+        ;
+
+          &--1-level {
+            @include link-colors(inherit, inherit, inherit, inherit, inherit);
+
+            margin-right: 30px;
+            text-transform: none;
+          }
+        }
+      }
+    }
+
+    &__list {
+      &__item {
+        &--2-level {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &__item--1-level {
+      padding-left: 0;
+      float: left;
+      width: 50% !important;
+
+      &:nth-child(2n+1) {
+        clear: left;
+      }
+
+      &:nth-child(1n+3) {
+        margin-top: 20px;
+      }
+    }
+
+    &__link {
+      font-size: 12px;
+
+      &--1-level {
+        font-size: 13px;
+      }
+    }
+  }
+
+  /*------------------------------------*\
+      #META-NAVIGATION
+  \*------------------------------------*/
+
+  .meta-nav {
+    margin-bottom: 30px;
+  }
+}

@@ -1,1 +1,4 @@
-console.log('This would be the main JS file.');
+function mapClick() {
+    console.log('cc');
+    window.open("http://vmjacobsen39.informatik.tu-muenchen.de")
+}

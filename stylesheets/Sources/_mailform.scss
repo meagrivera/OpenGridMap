@@ -1,0 +1,67 @@
+.csc-mailform-field {
+  clear: left;
+
+  input,
+  label,
+  select,
+  textarea {
+    margin-bottom: 8px;
+  }
+
+  input:not([type="submit"]),
+  select,
+  textarea {
+    width: 67%;
+  }
+
+  label {
+    float: left;
+    vertical-align: top;
+    width: 33%;
+  }
+
+  textarea {
+    margin-top: 0;
+  }
+
+  &.csc-mailform-checkbox {
+    margin-left: 33%;
+
+    label {
+      width: 89%;
+    }
+  }
+
+  .csc-mailform-check {
+    width: auto;
+    float: left;
+  }
+
+  .csc-mailform-radio {
+    fieldset {
+      border: none;
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      width: 67%;
+    }
+
+    legend {
+      display: none;
+    }
+
+    input {
+      width: 20px;
+    }
+
+    label {
+      width: auto;
+      margin-right: 16px;
+      float: none;
+    }
+  }
+
+  .csc-mailform-submit {
+    float: right;
+  }
+}

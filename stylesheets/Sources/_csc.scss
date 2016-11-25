@@ -1,0 +1,248 @@
+/*------------------------------------*\
+    #CSS-STYLED-CONTENT (CSC)
+\*------------------------------------*/
+
+/* ALLGEMEIN */
+
+DIV.csc-textpic-above DIV.csc-textpic-imagewrap,
+DIV.csc-textpic-below DIV.csc-textpic-imagewrap,
+DIV.csc-textpic DIV.csc-textpic-imagewrap UL LI,
+DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image {
+  float: none;
+}
+
+/* CSC-Uploads */
+
+UL.csc-uploads SPAN.csc-uploads-fileName {
+  text-decoration: none;
+}
+
+.csc-uploads-fileName {
+  a {
+    &:after {
+      @extend %download-link;
+    }
+  }
+}
+
+/*
+Bilder
+
+Bilder werden nur im Inhaltsbereich verwendet, nicht z.B. in der Randspalte (vgl. http://portal.mytum.de/corporatedesign/stylesweb/index_text_boxen/stylesweb/index_bilder) <br><br>
+Bilder haben stets eine Bildunterschrift. Sie bringt das Bild in einen inhaltlichen Zusammenhang mit der jeweiligen Seite. Hinter der Bildunterschrift werden der/die Urheber/in sowie der/die Inhaber/in der Nutzungsrechte genannt .<br><br>
+Für jedes Bild werden zudem ein Alt- und ein Title-Tag eingetragen. Der Alt-Tag wird angezeigt, wenn ein Bild nicht geladen werden kann. Der Title-Tag erscheint, wenn man den Mauszeiger auf das Bild bewegt. Beide Tags beschreiben immer, was auf dem Bild zu sehen ist (Stichwort: Barrierefreiheit). Überdies sind diese Tags auch bedeutsam für Suchmaschinen.
+
+Styleguide 7.0.0
+*/
+
+
+/*
+Standard-Format 16:9
+
+Das Standard-Format verwenden Sie z.B. um Texte zu illustrieren. Das Bild ist entweder genauso breit wie eine Spalte oder genau so breit wie die gesamte Inhaltsspalte. Verwenden Sie dieses Format nicht für Titelbilder.
+
+Markup:
+<div class="csc-textpic-imagewrap">
+	<dl class="csc-textpic-image csc-textpic-last">
+		<img src="Images/content/dummy-16-9.png" alt="Mood Picture" title="Standard Bildformat" width="800" height="450">
+		<dd class="csc-textpic-caption">Standard Bildunterschrift<span class="imagecopyright">Standard Copyright</span></dd>
+	</dl>
+</div>
+
+Styleguide 7.1.0
+*/
+
+/*
+Titelbilder 21:9
+
+Ein Titelbild ist im Inhaltsbereich ganz oben läuft über dessen gesamte Breite. Oberhalb eines Titelbildes befinden sich keine anderen Inhalte. Die H1, also die beschreibende Hauptüberschrift einer Seite mit Titelbild, ist immer unter dem Bild. Seiten mit einem Titelbild haben nur dieses eine Bild, keine anderen mehr im Inhalt.
+
+Markup:
+<div class="csc-textpic-imagewrap">
+	<dl class="csc-textpic-image csc-textpic-last">
+		<img src="Images/content/dummy-21-9.png" alt="Mood Picture" title="Title - Titelbild" width="1052" height="451">
+		<dd class="csc-textpic-caption">Titelbild Bildunterschrift<span class="imagecopyright">Titelbild Copyright</span></dd>
+	</dl>
+</div>
+
+Styleguide 7.2.0
+*/
+
+
+
+.csc-textpic-caption {
+  @at-root &, figcaption {
+    font-size: 11px;
+    line-height: 140%;
+    padding-top: 5px;
+    font-style: italic;
+    text-align: left;
+  }
+
+  .imagecopyright {
+    display: block;
+    color: $suvagrey;
+  }
+
+  /**
+   * Imagecaption white w/blueBackground
+   *
+   * Dient dem section_frame 111 und muss aus historischen Gründen beibehalten
+   * bleiben, auch wenn das Layout im BE nicht mehr auswählbar ist. Wird im
+   * Wesentlichen für die TUMstudinews-Seiten genutzt (z. B.
+   * https://www.tum.de/studium/studinews/ausgabe-052015/).
+   */
+  div.blueimagecaption & {
+    background-color: #002845;
+    padding-bottom: 10px;
+    font-size: 24px;
+    padding-left: 15px;
+    color: $white;
+    font-style: normal;
+  }
+}
+
+/* IMAGE-MARGINS */
+
+// left-aligned images
+DIV.csc-textpic-left DIV.csc-textpic-imagewrap .csc-textpic-image,
+DIV.csc-textpic-intext-left-nowrap DIV.csc-textpic-imagewrap .csc-textpic-image,
+DIV.csc-textpic-intext-left DIV.csc-textpic-imagewrap .csc-textpic-image {
+  margin-right: 20px;
+}
+
+// centered and right-aligned images
+DIV.csc-textpic-center DIV.csc-textpic-imagewrap .csc-textpic-image,
+DIV.csc-textpic-right DIV.csc-textpic-imagewrap .csc-textpic-image,
+DIV.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap .csc-textpic-image,
+DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap .csc-textpic-image {
+  margin-left: 20px;
+}
+
+DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image .csc-textpic-caption {
+  margin-bottom: 15px;
+}
+
+DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image IMG {
+  margin: 0;
+  vertical-align: bottom;
+}
+
+// Space below each image (also in-between rows)
+DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image {
+  margin-bottom: 10px;
+}
+
+DIV.csc-textpic-equalheight DIV.csc-textpic-imagerow {
+  margin-bottom: 20px;
+  display: block;
+}
+
+DIV.csc-textpic DIV.csc-textpic-imagerow {
+  clear: both;
+}
+
+DIV.csc-textpic DIV.csc-textpic-single-image IMG {
+  margin-bottom: 20px;
+}
+
+// No margins around the whole image-block
+DIV.csc-textpic.csc-textpic-left DIV.csc-textpic-imagewrap .csc-textpic-first,
+DIV.csc-textpic.csc-textpic-intext-left DIV.csc-textpic-imagewrap .csc-textpic-first,
+DIV.csc-textpic.csc-textpic-intext-left-nowrap DIV.csc-textpic-imagewrap .csc-textpic-first,
+DIV.csc-textpic.csc-textpic-center DIV.csc-textpic-imagewrap .csc-textpic-first,
+DIV.csc-textpic.csc-textpic-intext-center DIV.csc-textpic-imagewrap .csc-textpic-first,
+DIV.csc-textpic.csc-textpic-intext-center-nowrap DIV.csc-textpic-imagewrap .csc-textpic-first {
+  margin-left: 0px !important;
+}
+
+DIV.csc-textpic.csc-textpic-right DIV.csc-textpic-imagewrap .csc-textpic-first,
+DIV.csc-textpic.csc-textpic-intext-right DIV.csc-textpic-imagewrap .csc-textpic-first,
+DIV.csc-textpic.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap .csc-textpic-first {
+  margin-right: 0px !important;
+}
+
+DIV.csc-textpic.csc-textpic-left DIV.csc-textpic-imagewrap .csc-textpic-last,
+DIV.csc-textpic.csc-textpic-intext-left DIV.csc-textpic-imagewrap .csc-textpic-last,
+DIV.csc-textpic.csc-textpic-intext-left-nowrap DIV.csc-textpic-imagewrap .csc-textpic-last,
+DIV.csc-textpic.csc-textpic-center DIV.csc-textpic-imagewrap .csc-textpic-last,
+DIV.csc-textpic.csc-textpic-intext-center DIV.csc-textpic-imagewrap .csc-textpic-last,
+DIV.csc-textpic.csc-textpic-intext-center-nowrap DIV.csc-textpic-imagewrap .csc-textpic-last {
+  margin-right: 0px !important;
+}
+
+DIV.csc-textpic.csc-textpic-right DIV.csc-textpic-imagewrap .csc-textpic-last,
+DIV.csc-textpic.csc-textpic-intext-right DIV.csc-textpic-imagewrap .csc-textpic-last,
+DIV.csc-textpic.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap .csc-textpic-last,
+DIV.csc-textpic.csc-textpic-center DIV.csc-textpic-imagewrap .csc-textpic-last,
+DIV.csc-textpic.csc-textpic-intext-center DIV.csc-textpic-imagewrap .csc-textpic-last,
+DIV.csc-textpic.csc-textpic-intext-center-nowrap DIV.csc-textpic-imagewrap .csc-textpic-last {
+  margin-left: 0px !important;
+}
+
+.csc-textpic-intext-left-nowrap .csc-textpicHeader {
+  overflow: hidden;
+
+}
+
+// Add margin from image-block to text (in case of "Text w/ images")
+DIV.csc-textpic-intext-left DIV.csc-textpic-imagewrap,
+DIV.csc-textpic-intext-left-nowrap DIV.csc-textpic-imagewrap {
+  margin-right: 20px !important;
+}
+
+DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap,
+DIV.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap {
+  margin-left: 20px !important;
+}
+
+div.csc-textpic-above div.csc-textpic-imagewrap,
+div.csc-textpic-intext-left div.csc-textpic-imagewrap,
+div.csc-textpic-intext-right div.csc-textpic-imagewrap,
+DIV.csc-textpic.csc-textpic-intext-left DIV.csc-textpic-single-image IMG,
+DIV.csc-textpic.csc-textpic-intext-right DIV.csc-textpic-single-image IMG,
+DIV.csc-textpic.csc-textpic-intext-left DIV.csc-textpic-imagewrap .csc-textpic-image,
+DIV.csc-textpic.csc-textpic-intext-right DIV.csc-textpic-imagewrap .csc-textpic-image,
+DIV.csc-textpic DIV.csc-textpic-single-image IMG {
+  margin-bottom: 0;
+}
+
+.csc-textpic-imagewrap a {
+  @extend %disable-default-link-styles, %disable-external-link-styles;
+}
+
+// Wenn erstes Inhaltselement ein Bild, wird es mit dieser Klasse gewrapped.
+.mood-picture {
+  margin-bottom: 20px;
+}
+
+div.csc-textpic-intext-left-nowrap .csc-textpic-imagewrap{
+  float:left;
+}
+
+/*------------------------------------*\
+    #MOBIL
+\*------------------------------------*/
+
+.csc-uploads .csc-uploads-fileSize {
+  display: inline;
+}
+
+@media #{$mobile} {
+  DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap,
+  DIV.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap {
+    margin-left: 0 !important;
+  }
+
+  .mood-picture {
+    margin: {
+      left: -$grid-page-gap;
+      right: -$grid-page-gap;
+    }
+  ;
+
+    .csc-textpic-caption {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.browseLinksWrap {
+  a,span {
+    margin: 0 3px;
+  }
+}
+
+.listingBar {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 400px) {
+  .browseLinksWrap {
+    a,span {
+      white-space: nowrap;
+      margin: 0 2px;
+    }
+  }
+  .disabledLinkWrap {
+    display: none;
+  }
+}

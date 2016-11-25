@@ -1,0 +1,56 @@
+.tx-mwkeywordlist-pi1 {
+  // Damit der linke Rand vom ersten Jump-Menü-Element nicht sichtbar ist
+  overflow: hidden;
+}
+
+.tx-mwkeywordlist-pi1-jumpmenu {
+  font-size: 0; // http://css-tricks.com/fighting-the-space-between-inline-block-elements
+  margin-left: -5px; // Summe aus Padding und Border von .tx-mwkeywordlist-pi1-activeLink
+}
+
+.tx-mwkeywordlist-pi1-activeLink {
+  @extend %disable-default-link-styles;
+
+  border-left: 1px solid $verylightgrey;
+  font-size: 13px;
+  padding: 0 4px;
+
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
+}
+
+.tx-mwkeywordlist-pi1-inactiveLink {
+  display: none;
+}
+
+.tx-mwkeywordlist-pi1-content {
+  /* #CssTagList */
+  ul {
+    margin: {
+      bottom: 1em;
+      left: 1.2em;
+    }
+  }
+}
+
+.tx-mwkeywordlist-pi1-section {
+  margin-top: 38px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  strong {
+    padding-top: 10px;
+    display: inline-block;
+    font-size: 115%;
+  }
+}
+
+.tx-mwkeywordlist-pi1-anchor {
+  display: block;
+  height: 0;
+  visibility: hidden;
+}

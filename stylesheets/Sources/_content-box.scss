@@ -1,0 +1,773 @@
+/*
+Textspalten und Boxen
+
+Im Inhaltsbereich befinden sich die wesentlichen redaktionellen Informationen jeder Seite. Er wird gegliedert durch Gestaltungsmittel wie Textspalten, Überschriften, Bilder, Boxen etc. Mit den hier vorgestellten Elementen wird der Inhaltsbereich strukturiert
+
+Styleguide 4.0.0
+*/
+
+/*
+Text-Box / Standard-Box
+
+Standard-Boxen eignen sich zum Strukturieren von Seiteninhalten oder zum Hervorheben bestimmter Informationen. 
+
+Markup:
+<div class="content-box content-box--text">
+  <div class="content-box__head">
+    <h1 class="content-box__head-content">
+      Titel
+    </h1>
+  </div>
+  <p>
+    Bavaria ipsum dolor sit amet Hendl Weibaleid wo hi oba a fensdaln heitzdog.
+    Schaugn vui huift vui wia im Beidl Maderln, hob Fingahaggln. In da muass
+    resch und owe.
+  </p>
+</div>
+
+Styleguide 4.1.0
+*/
+
+/*
+Achtung-Box
+
+Diese Box ist ausschließlich in besonderen Fällen für wichtige Meldungen zu verwenden
+
+Markup:
+<div class="content-box content-box--text content-box--attention">
+  <div class="content-box__head">
+    <h1 class="content-box__head-content">
+      Titel
+    </h1>
+  </div>
+  <p>
+    Bavaria ipsum dolor sit amet Hendl Weibaleid wo hi oba a fensdaln heitzdog.
+    Schaugn vui huift vui wia im Beidl Maderln, hob Fingahaggln. In da muass
+    resch und owe.
+  </p>
+</div>
+
+Styleguide 4.8.0
+*/
+
+/*
+Info-Box
+
+Um spezielle Informationen besonders hervorzuheben, steht die Info-Box zur Verfügung.
+
+Markup:
+<div class="content-box content-box--text content-box--info {$modifiers}">
+  <div class="content-box__head">
+    <h1 class="content-box__head-content">
+      Titel
+    </h1>
+  </div>
+  <p>
+    Bavaria ipsum dolor sit amet Hendl Weibaleid wo hi oba a fensdaln heitzdog.
+    Schaugn vui huift vui wia im Beidl Maderln, hob Fingahaggln. In da muass
+    resch und owe.
+  </p>
+</div>
+
+.content-box--green - Grüne Akzentuierung
+
+Styleguide 4.2.0
+*/
+
+/*
+Download-Box
+
+Die Download-Box wird für einzelne Dateien verwendet, die besonders hervorgehoben werden sollen. Bei mehreren Dateien wird die Verwendung normaler Download-Links empfohlen.
+
+Markup:
+<div class="content-box content-box--downloads-box">
+  <div class="content-box__head">
+    <h1 class="content-box__head-content">
+      Titel
+    </h1>
+  </div>
+  <ul class="content-box__list">
+    <li class="content-box__item">
+      <a class="content-box__link" href="?">Download-Link</a>
+    </li>
+  </ul>
+</div>
+
+Styleguide 4.3.0
+*/
+
+/*
+Download-Box (Darstellung als Button)
+
+Der Download-Button kann alternativ zur Download-Box für einzelne Dateien verwendet, die besonders hervorgehoben werden sollen.
+
+Markup:
+<div class="content-box content-box--download-buttons">
+  <a class="content-box__link content-box__link--download" href="?">Download-Link</a>
+</div>
+
+Styleguide 4.4.0
+*/
+
+/*
+Tabs
+
+Tabs kommen aktuell nur in der Detailsuche vor und werden durch die Google-Suche erstellt. Ein eigenes Markup zur Verwendung innerhalb der TUM ist derzeit nicht verfügbar
+
+Markup:
+<div class="tabs"><!-- TODO: TBD --></div>
+
+Styleguide 4.6.0
+*/
+
+/*
+Linie (Divider)
+
+Grundsätzlich gilt Strichstärke 1px, Farben je nach Anwendungsfall gemäß Online-Farben. Es werden nur durchgezogene Linien verwendet
+
+Markup:
+<hr class="cl-right">
+
+Styleguide 4.7.0
+*/
+
+/* Hier ist zu beachten, dass die Inhaltsboxen sowohl generisch als auch
+innerhalb von TYPO3 einsetzbar sein sollen. Bedeutet: Das Styling muss sowohl
+für CSS Styled Content (CSC) und für "sauberes" HTML vorgenommen werden. Um das
+zu realisieren wird erst mal aufs saubere HTML gestyled und diese Styles am
+Ende der Datei per @extend auf die CSC-Klassen angewandt. Dabei ist zu
+beachten, dass fürs Extenden Silent-Classes verwendet werden sollten und diese
+nicht verschachtelt werden dürfen (weil daraus i. d. R. nicht die erwarteten
+Selektoren entstehen). */
+
+
+/*
+Randspalte
+
+Die rechte Randspalte ist vorgesehen für Kontaktangaben, News-Feeds und kurze, den Seiteninhalt ergänzende Informationen. Alle anderen Inhalte (auch Bilder, Abbildungen etc.) werden im Inhaltsbereich platziert.
+In der Randspalte werden außer den hier aufgeführten keine anderen Boxenstile, kein längerer Fließtext und keine Bilder eingefügt (vgl. http://portal.mytum.de/corporatedesign/stylesweb/index_randspalte)
+
+Styleguide 5.0.0
+*/
+
+
+/*
+Kontakt-Feld
+
+Ganz oben in der Randspalte befindet sich immer eine Kontaktangabe, die mit einer grünen Markierung und Überschrift versehen ist. Sie enthält entweder (auf Startseiten immer) Angaben zur Organisationseinheit, die die Seite betreibt (Name, Anschrift, Telefon und Faxnummer sowie eine EMail Adresse) oder Kontaktangaben einer Ansprechperson für den Inhalt der Seite. Es können auch mehrere Kontaktangaben untereinander gezeigt werden.
+
+
+Markup:
+<div class="content-box content-box--heavy content-box--green">
+	<div class="csc-header csc-header-n1">
+		<h4 class="csc-firstHeader">Kontakt</h4>
+	</div>
+	<p class="bodytext"><a href="#" title="Opens external link in new window" target="_blank" class="external-link-new-window">Corporate Communications Center</a><b><br>Presse- und Öffentlichkeitsarbeit</b><br>80290 München<br>Tel. 089/289-22778<br>Fax 089/289-23388<br><a href="#">presse@tum.de</a></p>
+</div>
+
+Styleguide 5.1.0
+*/
+
+
+/*
+Ergänzende Informationen
+
+In der Randspalte können Links zu anderen inhaltlich passenden Seiten angelegt werden. Sie werden immmer mit einer grauen Markierung gekennzeichnet.
+
+Markup:
+<div class="content-box content-box--heavy">
+	<div class="csc-header">
+		<h5>Titel</h5>
+	</div>
+	<div class="csc-textpic-text">
+		<p class="bodytext">Präsident Prof. Wolfgang A. Herrmann begrüßt Sie an der TUM. <a href="http://www.tum.de/die-tum/die-universitaet/der-praesident-begruesst-sie/" title="Opens internal link in current window" class="internal-link">Begrüßung des Präsidenten</a></p>
+	</div>
+</div>
+
+Styleguide 5.2.0
+*/
+
+
+/*
+News Feed
+
+News-Feeds (z.B. RSS) können in der Randspalte eingefügt werden. Sie werden mit einer orange-farbenen Markierung gekennzeichn
+
+Markup:
+<div id="c3161" class="content-box content-box--heavy content-box--red">
+	<div class="csc-header csc-header-n1"><h4 class="csc-firstHeader">Aktuelles</h4></div>
+  	<div class="news-header-list-container">
+		<div class="news-header-list-time">22.03.2016 - Kategorie</div>
+		<div class="news-header-list-title"><a href="#" title="Empfindliche Quantenteilchen">Lorem ipsum dolor sit amet</a></div>
+	</div>
+	<div class="news-header-list-container">
+		<div class="news-header-list-time">22.03.2016 - Kategorie</div>
+		<div class="news-header-list-title"><a href="#" title="Empfindliche Quantenteilchen">Lorem ipsum dolor sit amet</a></div>
+	</div>
+  	<div class="news-header-list-container"><a href="#">Alle anzeigen... </a></div>
+  	<div class="news-header-list-rss"><a class="rss" title="RSS abonnieren " href="#">RSS abonnieren </a></div>
+</div>
+
+Styleguide 5.3.0
+*/
+
+.content-box {
+  > :last-child {
+    /* Weil viele Container Overflow auf "hidden" setzen, darf margin-bottom
+    nicht 0 sein; es muss nach unten hin etwas Platz für den Hover-Effekt von
+    Links gelassen werden (sonst wird der border-bottom beim Hover
+    abgeschnitten). */
+    margin-bottom: $link-hover-border-bottom-width - $link-padding-bottom !important;
+  }
+
+  /*------------------------------------*\
+      #GEMEINSAMKEITEN
+  \*------------------------------------*/
+
+  &-wrap,
+  &--text,
+  &--downloads-box,
+  &--download-buttons {
+    margin: {
+      bottom: 20px;
+      top: 20px;
+    }
+  ;
+  }
+
+  &-wrap & {
+    &--text,
+    &--downloads-box,
+    &--download-buttons {
+      margin: {
+        top: 0;
+      }
+    ;
+        }
+
+  }
+
+  &--heavy,
+  &--text {
+    padding: $content-box-gap;
+
+    .content-box__head,
+    %csc-head-heavy-and-text {
+      margin-bottom: 10px;
+    }
+  }
+  &--heavy {
+    padding: 15px;
+  }
+
+  /*------------------------------------*\
+      #ELEMENTE
+  \*------------------------------------*/
+
+  &__head-content,
+  %csc-head-content {
+    @extend %disable-heading-styles;
+
+    line-height: 1.2em;
+  }
+
+  /* #CssTagLink */
+  &__head-link,
+  %csc-head-link,
+  &__news-link,
+  %csc-news-link {
+    @extend %disable-default-link-styles;
+
+    color: $nightrider !important;
+  }
+
+  &__news-item,
+  %csc-news-item {
+    border-bottom: 1px solid $gainsboro;
+    line-height: 1.45em;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+  }
+
+  /* #CssTagLink */
+  &__news-link,
+  %csc-news-link {
+    @include link-icon(image-url("icon/intlink-small.svg"), 11px);
+
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  &__news-link--rss,
+  %csc-news-link-rss {
+    @include link-icon(image-url("icon/rss.svg"), 16px, before);
+
+    margin-top: 1em;
+
+    &:before {
+      padding: {
+        bottom: 1px;
+        top: 1px;
+      }
+    ;
+    }
+
+    &:after {
+      content: none;
+    }
+  }
+
+  /*------------------------------------*\
+      #HEAVY
+  \*------------------------------------*/
+
+  &--heavy {
+    background-color: $whitesmoke;
+    font-size: 14px;
+    margin-bottom: 3px;
+
+    a,
+    p {
+      /* Darf nicht kleiner sein, weil sonst u. U. der border-bottom von Links
+      abgeschnitten wird. */
+      line-height: 1.45em;
+    }
+
+    .content-box__head,
+    %csc-head-heavy {
+      border-left: 3px solid $verylightgrey;
+      left: -15px;
+      padding: 3px 0 3px 11px;
+      position: relative;
+    }
+
+    .content-box__head--green,
+    %csc-head-heavy-green {
+      border-left-color: $citrus;
+    }
+
+    .content-box__head--green .content-box__head-content,
+    .content-box__head--green .content-box__head-link,
+    %csc-head-content-heavy-green {
+      color: $citrus !important;
+    }
+
+    /* In diesem Fall wird die Schriftfarbe NICHT geändert. Diese Inkonsistenz
+    war ediundsepp beim Facelift bekannt. Aus optischen Gründen wurde sich aber
+    dafür entschieden. */
+    .content-box__head--red,
+    %csc-head-heavy-red {
+      border-left-color: $tahitigold;
+    }
+
+    .content-box__head-content,
+    %csc-head-content-heavy {
+      font-size: 15px;
+    }
+
+    .content-box__head-link,
+    %csc-head-link-heavy {
+      display: inline-block;
+    }
+  }
+
+  /*------------------------------------*\
+      #TEXT
+  \*------------------------------------*/
+
+  &--text {
+    border: 1px solid $darkgray;
+
+    /**
+    * #ACHTUNG
+    */
+    &.content-box--attention {
+      border: 8px solid $lochmara;
+
+      .content-box__head-content,
+      .content-box__head-link,
+      %csc-head-content-attention {
+        color: $lochmara !important;
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+    }
+
+    /**
+    * #INFO
+    */
+    &.content-box--info {
+      padding: {
+        bottom: 20px;
+        top: 20px;
+        right: 45px;
+      }
+      position: relative;
+
+      &:before {
+        color: $darkgray;
+        background: image-url('icon/info_darkgray.png') no-repeat center center;
+        content: "";
+        display: block;
+        height: 36px;
+        width: 36px;
+        border: {
+          color: $darkgray;
+          style: solid;
+          width: 0 0 1px 1px;
+        }
+      ;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: {
+          left: 15px;
+          top: 9px;
+        }
+      ;
+      }
+
+      .content-box__head,
+      %csc-head-info {
+        margin-bottom: 20px;
+      }
+
+      .content-box__head-content,
+      %csc-head-content-info-icon {
+        padding-right: 35px;
+      }
+
+      .content-box__head-content,
+      .content-box__head-link,
+      %csc-head-content-info {
+        font-size: 16px;
+      }
+
+      &.content-box--green {
+        border-color: $citrus;
+
+        &:before {
+          border-color: $citrus;
+          color: $citrus;
+          background: image-url("icon/user.svg") no-repeat 9px center;
+        }
+      }
+    }
+  }
+
+  /*------------------------------------*\
+      #DOWNLOADS
+  \*------------------------------------*/
+
+  &--downloads-box,
+  &--download-buttons {
+    padding-bottom: 16px;
+
+    /* #CssTagList */
+    .content-box__list,
+    %csc-uploads-downloads-list {
+      @extend %disable-list-styles;
+    }
+
+    .content-box__item,
+    %csc-uploads-downloads-list-item {
+      font-size: 14px;
+      margin: {
+        bottom: .5em;
+        top: .5em;
+      }
+    }
+  }
+
+  &--downloads-box {
+    background-color: $whitesmoke;
+    border-right: 40px solid $lochmara;
+    position: relative;
+
+    &:after {
+      background: image-url("icon/download_white_big.svg") no-repeat right top;
+      content: "";
+      height: 17px;
+      position: absolute;
+      right: -30px;
+      top: 11px;
+      width: 21px;
+    }
+
+    .content-box__head,
+    %csc-head-downloads-box {
+      border: none;
+      border-bottom: 1px solid $lochmara;
+      padding: {
+        bottom: 4px;
+        left: 11px;
+        top: 9px;
+      }
+      position: inherit;
+    }
+
+    .content-box__head-content,
+    %csc-head-content-downloads-box {
+      font-size: 16px;
+    }
+
+    .content-box__head-link,
+    %csc-head-link-downloads-box {
+      display: inline-block;
+    }
+
+    /* #CssTagList */
+    .content-box__list,
+    %csc-uploads-download-box-list {
+      margin-left: 11px;
+    }
+
+    %csc-link-downloads-box {
+      @include link-icon(image-url("icon/download.svg"), 13px, after, true);
+    }
+  }
+
+  &--download-buttons {
+    .content-box__link--download,
+    %csc-content-downloads-buttons-link {
+      @extend %disable-default-link-styles;
+
+      @include link-icon(image-url("icon/download_white.svg"), 13px, after, true);
+      @include link-colors($white, $white, $white, $white, $white);
+
+      background-color: $lochmara;
+      font: {
+        size: 13px;
+        weight: bold;
+      }
+      padding: 5px 10px;
+
+      &:hover {
+        background-color: $royalblue;
+      }
+    }
+  }
+
+  /*------------------------------------*\
+      #CONTACT
+  \*------------------------------------*/
+
+  &--contact {
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+}
+
+/*------------------------------------*\
+    #CSS-STYLED-CONTENT (CSC)
+\*------------------------------------*/
+
+.content-box {
+  /* Kein Abstand unter Bildern */
+  div.csc-textpic-above,
+  div.csc-textpic-intext-left,
+  div.csc-textpic-intext-right {
+    div.csc-textpic-imagewrap {
+      margin-bottom: 0;
+    }
+  }
+
+  .csc-header {
+    h1, h2, h3, h4, h5, h6 {
+      @extend %csc-head-content;
+
+      a {
+        @extend %csc-head-link;
+      }
+    }
+  }
+
+  /*------------------------------------*\
+      #DOWNLOADS (CSC)
+  \*------------------------------------*/
+
+  &--downloads-box .csc-header {
+    @extend %csc-head-downloads-box;
+
+    h1, h2, h3, h4, h5, h6 {
+      @extend %csc-head-content-downloads-box;
+
+      a {
+        @extend %csc-head-link-downloads-box;
+      }
+    }
+  }
+  &--downloads-box .bodytext,
+  &--downloads-box .indent {
+    @extend %csc-uploads-downloads-list-item;
+  }
+  &--downloads-box .bodytext,
+  &--downloads-box .indent,
+  &--downloads-box .csc-uploads {
+    @extend %csc-uploads-download-box-list;
+  }
+  &--downloads-box .csc-uploads {
+    @extend %csc-uploads-downloads-list;
+  }
+  &--downloads-box .csc-uploads-element {
+    @extend %csc-uploads-downloads-list-item;
+  }
+  &--downloads-box .csc-uploads-fileName {
+    a {
+      @extend %csc-content-downloads-buttons-link;
+    }
+  }
+  &--downloads-box .csc-uploads-element a:after {
+    content: none;
+  }
+
+  &--download-buttons .csc-uploads {
+    @extend %csc-uploads-downloads-list;
+  }
+  &--download-buttons .csc-uploads-fileName a {
+    @extend %csc-content-downloads-buttons-link;
+  }
+
+  /*------------------------------------*\
+      #HEAVY (CSC)
+  \*------------------------------------*/
+
+  &--heavy .csc-header {
+    @extend %csc-head-heavy;
+    @extend %csc-head-heavy-and-text;
+
+    h1, h2, h3, h4, h5, h6 {
+      @extend %csc-head-content-heavy;
+
+      a {
+        @extend %csc-head-link-heavy;
+      }
+    }
+  }
+  &--heavy.content-box--green .csc-header {
+    @extend %csc-head-heavy-green;
+
+    h1, h2, h3, h4, h5, h6 {
+      @extend %csc-head-content-heavy-green;
+
+      a {
+        @extend %csc-head-content-heavy-green;
+      }
+    }
+  }
+  &--heavy.content-box--red .csc-header {
+    @extend %csc-head-heavy-red;
+  }
+
+  /*------------------------------------*\
+      #TEXT (CSC)
+  \*------------------------------------*/
+
+  &--text .csc-header {
+    @extend %csc-head-heavy-and-text;
+  }
+
+  &--text{
+    .csc-textpic-text {
+      margin-bottom: 0 !important;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &--text.content-box--attention .csc-header {
+    @extend %csc-head-content-attention;
+
+    h1, h2, h3, h4, h5, h6 {
+      @extend %csc-head-content-attention;
+
+      a {
+        @extend %csc-head-content-attention;
+      }
+    }
+  }
+  &--text.content-box--info .csc-header {
+    @extend %csc-head-info;
+    @extend %csc-head-content-info;
+    @extend %csc-head-content-info-icon;
+
+    h1, h2, h3, h4, h5, h6 {
+      @extend %csc-head-content-info;
+
+      a {
+        @extend %csc-head-content-info;
+      }
+    }
+  }
+
+  /*------------------------------------*\
+      #NEWS (CSC)
+  \*------------------------------------*/
+
+  .news-header-list-container {
+    @extend %csc-news-item;
+  }
+
+  .news-header-list-time {
+    font-size: 12px;
+    color: $empress;
+  }
+
+  .news-header-list-container a,
+  .rss {
+    @extend %csc-news-link;
+  }
+  .rss {
+    @extend %csc-news-link-rss;
+  }
+}
+
+/*------------------------------------*\
+    #MOBIL
+\*------------------------------------*/
+
+@media #{$mobile} {
+  .content-box {
+    div.csc-textpic-intext-left,
+    div.csc-textpic-intext-right {
+      div.csc-textpic-imagewrap {
+        float: none;
+        margin-bottom: 20px;
+      }
+    }
+
+    &--heavy {
+      background-color: transparent;
+      border: 1px solid $gainsboro;
+      /**
+       * -1, damit sich unterer Rand von oberer Box mit oberen Rand von unterer
+       * Box überlagert und nur noch eine Linie sichtbar ist.
+       */
+      margin-bottom: -1px;
+    }
+  }
+
+  .content-box-wrap {
+    margin: {
+      bottom: -40px;
+      top: -40px;
+    }
+
+    .content-box & {
+      margin: {
+        bottom: 0;
+        top: 0;
+      }
+    }
+
+    @at-root .content-box:not(.content-box--heavy),
+    & .content-box,
+    & .csc-default {
+      margin: {
+        bottom: 40px;
+        top: 40px;
+      };
+    }
+  }
+}

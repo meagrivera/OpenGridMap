@@ -1,0 +1,50 @@
+/*------------------------------------*\
+    #STYLES
+\*------------------------------------*/
+@import "Sources/settings";
+@import "Sources/mixins";
+
+/*------------------------------------*\
+    #Vendor CSS
+\*------------------------------------*/
+@import "Sources/Vendor/in2flexslider/in2flexslider";
+@import "Sources/Vendor/in2languagsuggest/language";
+@import "Sources/Vendor/in2royalslider/screen";
+@import "Sources/Vendor/in2soundcloud/Basic";
+@import "Sources/Vendor/tum_studycourses/studycourses";
+
+/*------------------------------------*\
+    #Modules
+\*------------------------------------*/
+
+
+@import "Sources/reset";
+
+@import "Sources/globals";
+@import "Sources/typography";
+
+@import "Sources/grid";
+
+@import "Sources/csc";
+@import "Sources/overall";
+
+@import "Sources/navigation";
+@import "Sources/content-box";
+@import "Sources/accordion";
+@import "Sources/sitemap";
+@import "Sources/fancybox";
+@import "Sources/socialshareprivacy";
+@import "Sources/browserupdate";
+@import "Sources/google-custom-search";
+
+@import "Sources/tt-news";
+@import "Sources/mailform";
+@import "Sources/mw_keywordlist";
+@import "Sources/in2royalslider";
+@import "Sources/in2flexslider";
+@import "Sources/tumvcard";
+
+@import "Sources/shame";
+@import 'Sources/pagebrowser';
+
+@import "main";

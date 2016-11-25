@@ -1,0 +1,206 @@
+/*------------------------------------*\
+    #BREAKPOINTS
+\*------------------------------------*/
+
+$mobile: "only screen and (max-width: 799px)";
+
+/*
+Farben
+
+Die Farbdefintionen für die Verwendung bei Online-Auftritten sind für den Einsatz auf Bildschirmen in Bezug auf Lesbarkeit und Barrierefreit optimiert und weichen von den Farbwerten für den Druck ab.
+Alle Farbangaben verstehen sich als hexadezimale Farbdefinition im Farbraum RGB.
+
+Styleguide 12.0.0
+*/
+
+/*
+Primärfarben
+
+<div class="styleguide__example__colorbox colorbox--lochmara"><span class="styleguide__example__colorbox__description">$lochmara: #3070b3;</span></div>
+<div class="styleguide__example__colorbox colorbox--royalblue"><span class="styleguide__example__colorbox__description">$royalblue: 10% lighten $lochmara (#4889ce);</span></div>
+<div class="styleguide__example__colorbox colorbox--nightrider"><span class="styleguide__example__colorbox__description">$nightrider: #333333;</span></div>
+<div class="styleguide__example__colorbox colorbox--white"><span class="styleguide__example__colorbox__description">$white: #ffffff;</span></div>
+
+Styleguide 12.1.0
+*/
+
+/*
+Akzentfarben
+
+<div class="styleguide__example__colorbox colorbox--citrus"><span class="styleguide__example__colorbox__description">$citrus: #a0af00;</span></div>
+<div class="styleguide__example__colorbox colorbox--tahitigold"><span class="styleguide__example__colorbox__description">$tahitigold: #e37222;</span></div>
+
+Styleguide 12.2.0
+*/
+
+/*
+Grautöne
+
+<div class="styleguide__example__colorbox colorbox--solitude-light"><span class="styleguide__example__colorbox__description">$solitude-light: #f3f7f8;</span></div>
+<div class="styleguide__example__colorbox colorbox--whitesmoke"><span class="styleguide__example__colorbox__description">$whitesmoke: #f7f7f7;</span></div>
+<div class="styleguide__example__colorbox colorbox--whitesmoke-darker"><span class="styleguide__example__colorbox__description">$whitesmoke-darker: #f4f4f4;</span></div>
+<div class="styleguide__example__colorbox colorbox--gainsboro"><span class="styleguide__example__colorbox__description">$gainsboro: #e6e6e6;</span></div>
+<div class="styleguide__example__colorbox colorbox--solitude"><span class="styleguide__example__colorbox__description">$solitude: #dbe2e9;</span></div>
+<div class="styleguide__example__colorbox colorbox--verylightgrey"><span class="styleguide__example__colorbox__description">$verylightgrey: #cdcdcd;</span></div>
+<div class="styleguide__example__colorbox colorbox--darkgray"><span class="styleguide__example__colorbox__description">$darkgray: #b3b3b3;</span></div>
+<div class="styleguide__example__colorbox colorbox--suvagrey"><span class="styleguide__example__colorbox__description">$suvagrey: #8a8a8a;</span></div>
+<div class="styleguide__example__colorbox colorbox--grey"><span class="styleguide__example__colorbox__description">$grey: #777777;</span></div>
+<div class="styleguide__example__colorbox colorbox--empress"><span class="styleguide__example__colorbox__description">$empress: #737373;</span></div>
+<div class="styleguide__example__colorbox colorbox--charcoal"><span class="styleguide__example__colorbox__description">$charcoal: #4c4c4c;</span></div>
+<div class="styleguide__example__colorbox colorbox--black"><span class="styleguide__example__colorbox__description">$black: #000000;</span></div>
+
+Styleguide 12.3.0
+*/
+
+$citrus: #a0af00;
+$lochmara: #3070b3;
+$royalblue: lighten($lochmara, 10%);
+$red: red; // backend usage only
+$tahitigold: #e37222;
+$white: #ffffff;
+$solitude-light: #f3f7f8;
+$whitesmoke: #f7f7f7;
+$whitesmoke-darker: #f4f4f4;
+$gainsboro: #e6e6e6;
+$solitude: #dbe2e9;
+$verylightgrey: #cdcdcd;
+$darkgray: #b3b3b3;
+$suvagrey: #8a8a8a;
+$grey: #777777;
+$empress: #737373;
+$charcoal: #4c4c4c;
+$nightrider: #333333;
+$black: #000000;
+
+.colorbox {
+  &--citrus {
+    background-color: $citrus
+  }
+
+  &--lochmara {
+    background-color: $lochmara
+  }
+
+  &--royalblue {
+    background-color: $royalblue
+  }
+
+  &--red {
+    background-color: $red
+  }
+
+  &--tahitigold {
+    background-color: $tahitigold
+  }
+
+  &--white {
+    background-color: $white
+  }
+
+  &--solitude-light {
+    background-color: $solitude-light
+  }
+
+  &--whitesmoke {
+    background-color: $whitesmoke
+  }
+
+  &--whitesmoke-darker {
+    background-color: $whitesmoke-darker
+  }
+
+  &--gainsboro {
+    background-color: $gainsboro
+  }
+
+  &--solitude {
+    background-color: $solitude
+  }
+
+  &--verylightgrey {
+    background-color: $verylightgrey
+  }
+
+  &--darkgray {
+    background-color: $darkgray
+  }
+
+  &--suvagrey {
+    background-color: $suvagrey
+  }
+
+  &--grey {
+    background-color: $grey
+  }
+
+  &--empress {
+    background-color: $empress
+  }
+
+  &--charcoal {
+    background-color: $charcoal
+  }
+
+  &--nightrider {
+    background-color: $nightrider
+  }
+
+  &--black {
+    background-color: $black
+  }
+}
+
+/*------------------------------------*\
+    #DIMENSIONEN
+\*------------------------------------*/
+
+$boxpadding: 10px;
+$boxpadding-right: 15px;
+$quoteheight: 130px;
+$searchheight: 22px;
+$searchwidth: 205px;
+
+$content-box-gap: 20px;
+$link-padding-bottom: 1px;
+$link-hover-border-bottom-width: 3px;
+$base-line-height: 1.6em;
+$base-font-size: 14px;
+$bar-padding-small: 20px;
+$bar-padding-large: 30px;
+$grid-page-gap: 20px;
+
+$news-thumbs-width: 190px;
+$news-thumbs-padding: 5px;
+$news-thumbs-minheight: 35px;
+$news-single-firstimage-width: 260px;
+$news-single-firstimage-height: 147px;
+
+$inputHeight: 17px;
+$inputWidth: 17px;
+$inputBorderWidth: 1px;
+$inputActiveScale: 6px;
+
+/*------------------------------------*\
+    #EFFEKTE
+\*------------------------------------*/
+
+$hovertime: 150ms;
+$hovereffect: ease-in-out;
+
+/*------------------------------------*\
+    #Z-INDEXE
+\*------------------------------------*/
+
+$z-index-quote-1: 10;
+$z-index-quote-2: 20;
+$z-index-hover-menu: 30;
+$z-index-main-nav-toggle: 10;
+
+$url-image: '../Images/';
+
+/*------------------------------------*\
+    Extend Placeholder
+\*------------------------------------*/
+%header_color{
+  color: $charcoal;
+}

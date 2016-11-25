@@ -1,0 +1,345 @@
+@import 'settings';
+
+%checkbox--checked {
+  content: ' ';
+  display: inline-block;
+  border: 1px solid black;
+  height: 15px;
+  width: 15px;
+  position: relative;
+  top: 4px;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+
+// allgemeine Angaben
+.studienberater {
+  * {
+    box-sizing: border-box;
+  }
+  .hide {
+    display: none;
+  }
+}
+
+.studienberater__title_link {
+  @extend %disable-default-link-styles;
+  display: block;
+
+  &:hover, &:hover * {
+    color: $lochmara;
+  }
+
+  h6 {
+    font-size: 12px;
+    font-style: normal;
+  }
+
+  h5 {
+    @include link-icon(image-url("icon/intlink.svg"), 11px);
+  }
+}
+
+// Linkicons entfernen
+//.content .seven & a,
+.content .ten .studienberater_filter a,
+.content .ten .studienberater_pagebrowser a {
+  background: none;
+  font-weight: normal;
+}
+
+// Chosen Select
+.chosen-container {
+  width: 100% !important;
+}
+
+.studienberater_filter {
+  margin-bottom: 20px;
+
+  option {
+    font-weight: bold;
+    color: $gray;
+  }
+}
+
+.studienberater_options {
+  background-color: $whitesmoke-darker;
+  @include clearfix();
+}
+
+// Schaltfläche Optionen ein-/ausblenden
+.studienberater_optionsheader {
+  text-align: center;
+  background-color: $white;
+  span {
+    position: relative;
+    cursor: pointer;
+    padding-right: 30px;
+    display: block;
+  }
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .studienberater_optionsheader {
+    text-align: right;
+    float: right;
+  }
+}
+
+.studienberater_optionsheader_show {
+  padding-right: 15px;
+  &:after {
+    top: 37%;
+    background-position: center 7px;
+  }
+}
+
+.studienberater_optionsheader_hide {
+  &:after {
+    top: 50%;
+  }
+}
+
+// Optionsfelder
+.studienberater_optionsection {
+  clear: both;
+  margin: 0;
+  padding: 15px 15px 15px 15px;
+  border-style: none;
+  border-bottom: 2px solid $white;
+}
+
+.studienberater_optiontitle {
+  padding-left: 20px;
+  width: 100%;
+  position: relative;
+  top: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  &:before {
+    content: '';
+    display: inline;
+    left: 6px;
+    position: absolute;
+    top: 4px;
+    border: 5px solid transparent;
+    border-top-color: $black;
+    border-bottom: none;
+  }
+  &.opened {
+    &:before {
+      border: 5px solid transparent;
+      border-bottom-color: $black;
+      border-top: none ;
+    }
+  }
+}
+
+.studienberater_accordion {
+  display: none;
+  margin-top: 15px;
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .studienberater_label {
+    display: inline-block;
+    width: 32%;
+    margin-left: .5%;
+  }
+}
+
+// Auflistung Studiengänge
+#studienberater {
+  &.loading {
+    > * {
+      opacity: 0.1;
+    }
+    position: relative;
+    top: 0;
+    left: 0;
+    &:after {
+      content: '';
+      opacity: 1;
+      position: absolute;
+      top: 250px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      background: in2-image-url('loading.gif') no-repeat center 50px;
+    }
+  }
+}
+
+.studienberater_list_resultcount {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.studienberater_list_character {
+  font-size: 30px;
+  font-weight: bold;
+  border-bottom: 2px solid $text;
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  span {
+    margin-left: -30px;
+  }
+}
+
+.studienberater_list_item {
+  padding: 10px 0;
+  @include clearfix();
+  p {
+    margin-bottom: 15px;
+  }
+}
+
+.studienberater_list_buttons {
+  a {
+    display: inline-block;
+    width: 22%;
+    margin: 0 4% 10px 0;
+    padding: 3px !important;
+    border-style: none;
+    color: $white;
+    background-color: $blue !important;
+    text-align: center;
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover {
+      background-color: $bluelighter !important;
+    }
+    &:active {
+      background-color: $blueminlighter !important;
+    }
+  }
+}
+
+.studienberater_list_readmore {
+  @extend .news-list__morelink;
+  margin-bottom: 0!important;
+}
+
+// Pagebrowser
+.studienberater_pagebrowser {
+  text-align: center;
+  margin: 20px 0;
+  a {
+    margin-right: 15px;
+    font-weight: bold !important;
+    font-size: 18px;
+    color: $text;
+  }
+  .current {
+    color: $bluelight;
+  }
+}
+
+.studienberater_pagebrowser_last {
+  margin-right: 0;
+}
+
+// Detailansicht
+// Layout fixen, damit rechte Spalte im Mobile oben ist.
+.studienberater_detail {
+  .four.columns {
+    float: right;
+    margin-left: 4.4%;
+  }
+  .eight.columns {
+    margin-left: 0;
+  }
+}
+
+div.studienberater_detail_jumpnavigation {
+  ul {
+    list-style: none outline;
+    margin-left: 0;
+    li {
+      display: inline-block;
+      margin-left: 10px;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+a.studycourses__backlink {
+  background: none transparent;
+}
+
+.content .ten .studienberater_detail_jumpnavigation a,
+.back-button {
+  display: block;
+  padding: 5px 10px;
+  border-style: none;
+  color: $white;
+  background-color: $blue;
+  text-align: center;
+  cursor: pointer;
+
+  @media (min-width: $breakpoint-tablet) {
+    display: inline-block;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+  &:hover {
+    background-color: $bluelighter;
+  }
+  &:active {
+    background-color: $blueminlighter;
+  }
+}
+
+%studienberater_optionsheader--icon {
+  content: '';
+  display: inline;
+  right: 0;
+  position: absolute;
+  border: 8px solid transparent;
+
+}
+
+.studienberater_optionsheader {
+  color: #fff;
+  background-color: $lochmara;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px 20px;
+  position: relative;
+
+  .studienberater_optionsheader_show:after {
+    @extend %studienberater_optionsheader--icon;
+    border-top-color: #fff;
+    border-bottom: none ;
+  }
+
+  .studienberater_optionsheader_hide:after {
+    @extend %studienberater_optionsheader--icon;
+    top: 3px;
+    border-bottom-color: #fff;
+    border-top: none ;
+  }
+}
+
+.studienberater{
+  &__letter {
+    margin-top: 20px;
+    background-color: $whitesmoke-darker;
+    padding: 10px;
+    border-left: 3px solid $lochmara;
+    color: $lochmara;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}

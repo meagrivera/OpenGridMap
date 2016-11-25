@@ -1,0 +1,174 @@
+* {
+  font-family: sans-serif !important;
+  background: transparent !important;
+  color: black !important;
+  text-shadow: none !important;
+  filter: none !important;
+  -ms-filter: none !important;
+  border-color: #999999 !important;
+}
+
+html {
+  font-size: 12px !important;
+  line-height: 1.4em !important;
+}
+
+a {
+  border: none !important;
+}
+
+p a {
+  color: #444444 !important;
+  text-decoration: underline !important;
+  border: none !important;
+}
+
+p a:visited {
+  color: #444444 !important;
+  text-decoration: underline !important;
+}
+
+p a[href]:after {
+  content: " (" attr(href) ")" !important;
+  word-wrap: break-word;
+}
+
+abbr[title]:after {
+  content: " (" attr(title) ")" !important;
+  word-wrap: break-word;
+}
+
+a[href^="javascript:"]:after,
+a[href^="#"]:after {
+  content: "" !important;
+}
+
+a[target='_blank']:after,
+a:not([href^="tum.de"]):not([href*="www.tum.de"]):not([href*="//tum.de"]):not([href="#"]):after {
+  background: none !important;
+}
+
+.content-box__news-link:after,
+.content-box .news-header-list-container a:after,
+.content-box .rss:after {
+  background: none !important;
+}
+
+pre,
+blockquote {
+  border: 1px solid #999999 !important;
+  page-break-inside: avoid !important;
+}
+
+thead {
+  display: table-header-group !important;
+}
+
+tr,
+img {
+  page-break-inside: avoid !important;
+}
+
+@page {
+  margin: 1.5cm !important;
+}
+
+p,
+h2,
+h3 {
+  orphans: 3 !important;
+  widows: 3 !important;
+}
+
+h2,
+h3 {
+  page-break-after: avoid !important;
+}
+
+h1 {
+  font-size: 1.7em !important;
+}
+
+h2 {
+  font-size: 2em !important;
+}
+
+h3 {
+  font-size: 1.2em !important;
+}
+
+h4 {
+  font-size: 1.15em !important;
+}
+
+h5 {
+  font-size: 1em !important;
+}
+
+h6 {
+  font-size: 1em !important;
+}
+
+h1 a:after, h2 a:after, h3 a:after, h4 a:after, h5 a:after, h6 a:after {
+  background: none !important;
+}
+
+.csc-textpic-caption {
+  font-size: 0.9em !important;
+}
+
+.container {
+  padding: 0 !important;
+  width: 18cm !important;
+  margin: 0 auto !important;
+}
+
+.printheader {
+  margin-top: 0.5cm !important;
+}
+
+.show-on-mobile,
+.breadcrumb,
+.container.content .two.columns.hide-on-mobile,
+.recommendlink,
+.news-single-backlink {
+  display: none !important;
+}
+
+.container.content .seven.columns {
+  margin: 0 auto !important;
+  padding: 0 !important;
+  width: 17.8cm !important;
+}
+
+.content > .row {
+  border: none !important;
+}
+
+#indexedsearch_mobile {
+  display: block !important;
+}
+
+.back-to-top__link {
+  display: none !important;
+}
+
+.printbutton {
+  padding: 10px !important;
+  background-color: #999999 !important;
+  border-top: 1px solid black !important;
+  border-bottom: 1px solid black !important;
+  text-align: center !important;
+
+  input {
+    padding: 5px !important;
+    background-color: #002143 !important;
+    color: white !important;
+  }
+}
+
+@media print {
+  .printbutton {
+    display: none !important;
+  }
+}

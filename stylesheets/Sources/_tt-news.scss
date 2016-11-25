@@ -1,0 +1,338 @@
+/*
+Nachrichten (News)
+
+Styleguide 10.0.0
+*/
+
+
+.news-list-container {
+  border-top: 1px solid $solitude;
+  padding-top: 20px;
+}
+
+.img-caption-float {
+  float: left;
+  margin-right: 3%;
+  width: 35%;
+  @media #{$mobile} {
+    width: 100%;
+  }
+  line-height: 1em;
+
+  a {
+    @extend %disable-default-link-styles, %disable-external-link-styles;
+  }
+}
+
+/*------------------------------------*\
+    #LISTENANSICHT
+\*------------------------------------*/
+
+/*
+Liste (list)
+
+Semantische Nachrichtenliste (HTML5) mit einem Bild
+
+Markup:
+<ul class="news-list">
+  <li class="news-list__item">
+    <article class="news-list__content">
+      <header class="news-list__header">
+        <span><time class="news-list__date" datetime="2010-08-07 11:11:03-0400">05.04.2016, TUM im Fernsehen</time></span>
+        <a href="#" title="Forschen unter barocken Fresken">
+          <h4>Forschen unter barocken Fresken</h4>
+          <h3>Medienberichte zeigen TUM Science Study Center Raitenhaslach</h3>
+        </a>
+      </header>
+      <figure class="news-list__image img-caption-float">
+        <a href="#" title="Forschen unter barocken Fresken">
+          <img src="Images/content/Tx-News/News-List-Image-01.jpg" alt="Festsaal des Klosters Raitenhaslach." title="Imposante Kulisse für internationale Tagungen: der Festsaal des Klosters Raitenhaslach. (Bild: Heddergott / TUM)" width="336" height="189">
+        </a>
+      </figure>
+      <p class="bodytext">
+        Imposante Deckengewölbe, prunkvolle Wandgemälde, 250 Jahre alte Böden und
+        Fenster: Im Prälatenbau des Klosters Raitenhaslach ist eine Vielzahl an barocken Originalen
+        erhalten, obwohl er jahrzehntelang als Wohnhaus und Brauerei genutzt wurde. Nun richtet die
+        TUM hier ein neues Akademiezentrum ein. Vor der Eröffnung zeigen Sat.1 Bayern und der BR den
+        beeindruckenden Bau.
+      </p>
+      <footer>
+        <div class="news-list__morelink">
+          <a class="" href="#" title="Forschen unter barocken Fresken">weiterlesen</a>
+        </div>
+      </footer>
+    </article>
+  </li>
+<ul class="news-list">
+
+Styleguide 10.1.0
+*/
+
+.news-list {
+  padding: 0;
+  margin: 0;
+
+  &__header {
+    margin-bottom: 1.5em;
+
+    h3 {
+      @include link-icon(image-url("icon/intlink.svg"), 11px);
+    }
+
+    a {
+      @extend %disable-default-link-styles;
+      display: block;
+
+      &:hover, &:hover * {
+        color: $lochmara;
+      }
+    }
+  }
+
+  &__item {
+    list-style: none;
+    border-bottom: 1px solid $darkgray;
+    margin: 12px 0 18px;
+    @include clearfix;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    > a {
+      @extend %disable-default-link-styles;
+
+      display: block;
+      margin-bottom: 1.5em;
+
+      &:hover,
+      &:active {
+        text-decoration: underline;
+      }
+    }
+
+    h3,
+    h4 {
+      @extend %disable-heading-styles;
+    }
+
+    h3 {
+      font-size: 1.5em;
+    }
+
+    h4 {
+      line-height: 1.3em;
+      margin-bottom: .5em;
+    }
+  }
+
+  &__morelink {
+    margin-bottom: 20px;
+    text-align: right;
+  }
+
+  .img-caption-float {
+    margin-right: 3%;
+    margin-bottom: 20px;
+  }
+}
+
+.news-list__date {
+  display: block;
+  margin-bottom: 1em;
+  line-height: 1em;
+}
+
+.news-list__content > .bodytext,
+.news-list__morelink {
+  float: right;
+  width: 62%;
+}
+
+/*------------------------------------*\
+    #EINZELANSICHT
+\*------------------------------------*/
+
+/*
+Detailansicht
+
+Das Layout der News in www.tum.de wird derzeit noch überarbeitet. Die Komponenten werden zu einem späteren Zeitpunkt zur Verfügung gestellt
+
+Markup:
+<article class="news-article">
+ <!-- TODO -->
+</article>
+
+Styleguide 10.2.0
+*/
+
+.news-article {
+  overflow: hidden;
+
+  /**
+  * #CssTagHeading
+  *
+  * Bei den News soll die H1 aussehen wie eine H2 und eine H2 aussehen wie
+  * eine H1. Styles müssen also hier entsprechend vertauscht werden.
+  */
+  h1 {
+    font-size: 20px;
+    margin-bottom: .75em;
+  }
+  h2 {
+    font-size: 35px;
+    line-height: 1.15em;
+    margin-bottom: .5em;
+  }
+
+  h3 {
+    padding: {
+      top: 20px;
+    }
+  }
+
+  h5 {
+    font-weight: bold;
+    line-height: 1.4em;
+  }
+
+  .news-video-wrap {
+    margin: 15px 0 0 0;
+    position: relative;
+
+    .news-article__img {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+
+    .youtube {
+      opacity: 0.8;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: image-url("video-button.png") transparent no-repeat center center;
+      width: $news-single-firstimage-width;
+      height: $news-single-firstimage-height;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .img-caption-float-thumbs {
+    width: $news-thumbs-width;
+    float: left;
+    margin: 0 10px 10px 0;
+    position: relative;
+
+    .news-article__imgcaption {
+      background: $solitude-light;
+      width: $news-thumbs-width;
+      padding: $news-thumbs-padding;
+      min-height: $news-thumbs-minheight;
+    }
+  }
+
+  .img-caption-float {
+    margin: {
+      right: 20px;
+      bottom: 10px;
+    }
+    width: $news-single-firstimage-width;
+  }
+
+  .news-article__additional-info {
+    dl {
+      margin: 0 0 10px 0;
+    }
+
+    dt {
+      font-weight: bold;
+      padding: 5px;
+      background: $solitude-light;
+    }
+
+    dd {
+      padding: 5px 5px 0 5px;
+
+      img {
+        margin: 0 10px 0 0;
+      }
+
+      .news-article__downloadfiles {
+        margin: 0 0 0 10px;
+      }
+    }
+  }
+}
+
+.tt_news_images2 {
+  overflow: hidden;
+
+  a {
+    @extend %disable-default-link-styles;
+  }
+}
+
+.recommendlink {
+  @extend %disable-default-link-styles;
+  @include link-icon(image-url("icon/formail.svg"), 20px, before);
+
+  display: block;
+  margin-bottom: 10px;
+
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
+}
+
+/*------------------------------------*\
+    #KATEGORIE-MENÜ
+\*------------------------------------*/
+
+.news-catmenu {
+  > a, .news-catmenu-header {
+    display: none;
+  }
+}
+
+.content .three .news-catmenu-NO {
+  a {
+    font-weight: normal;
+  }
+}
+
+/*------------------------------------*\
+    #VORSCHAUFUNKTION
+\*------------------------------------*/
+
+// Dient BE-Usern als Vorschau für zeitgesteuerte Veröffentlichungen.
+
+.news-preview:before {
+  padding: 0 5px;
+  margin-right: 5px;
+  content: "Preview";
+  color: $white;
+  background-color: $red;
+}
+
+/*------------------------------------*\
+    #MOBIL
+\*------------------------------------*/
+
+@media #{$mobile} {
+  .news-list__item {
+    .img-caption-float {
+      float: none;
+    }
+  }
+
+  .news-list__content > .bodytext {
+    float: none;
+    width: 100%;
+  }
+}

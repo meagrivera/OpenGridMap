@@ -1,0 +1,119 @@
+.tumvcard {
+  display: inline-block;
+  width: 100%;
+
+  .hide {
+    display: none;
+  }
+
+  .vcard {
+
+    .vcardleft1 {
+      width: 21.68%;
+    }
+
+    .vcardleft1,
+    .vcardright1 {
+      float: left;
+    }
+
+    .vcardright1 {
+      margin-left: 4.4%;
+      width: 39.1%;
+
+      .note {
+        + dl {
+          padding-top: 0.7em;
+        }
+      }
+    }
+
+    h1 {
+      font-size: 15px;
+      margin-bottom: 7px;
+      padding-bottom: 0;
+    }
+
+    .photo {
+      width: 120px;
+    }
+
+    .honorific-prefix {
+      display: block;
+      margin-bottom: 0.1em;
+      font-size: 13px;
+      font-weight: normal;
+    }
+
+    hr {
+      display: none;
+    }
+
+    dl {
+      clear: left;
+      display: inline-block;
+
+      dt,
+      dd {
+        float: left;
+        line-height: 1.6em;
+      }
+
+      dt:after {
+        content: ":\00a0"; // white space
+      }
+    }
+
+    .clear {
+      clear: both;
+    }
+  }
+
+  &__additional-info {
+    display: inline-block;
+    width: 30%;
+    margin-left: 4.4%;
+
+    > :first-child {
+      padding-top: 17px;
+    }
+  }
+}
+
+/*------------------------------------*\
+    #MOBIL
+\*------------------------------------*/
+
+@media #{$mobile} {
+  .tumvcard {
+    .vcard {
+      .vcardleft1 {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 1em;
+      }
+      .vcardleft1,
+      .vcardright1 {
+        float: none;
+      }
+      .vcardright1 {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+
+    .csc-header {
+      float: none;
+      width: 100%;
+    }
+
+    &__additional-info {
+      width: 100%;
+      margin-left: 0;
+
+      > :first-child {
+        padding-top: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+.flexslider {
+  a {
+    @extend %disable-default-link-styles, %disable-external-link-styles;
+  }
+}

@@ -1,0 +1,388 @@
+html {
+  background-color: $gainsboro;
+  box-sizing: border-box;
+  height: 100.1%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: $white;
+  color: $nightrider;
+  font-family: Arial, sans-serif;
+  font-size: $base-font-size;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+Formulare
+
+Die Eingabefelder von Formularen werden mit Linien umrandet.
+
+Markup:
+<form action="" method="post">
+  <fieldset class="csc-mailform">
+    <div class="csc-mailform-field">
+      <label for="textfeld">Textfeld</label>
+      <input type="text" name="textfeld" id="textfeld" size="40" maxlength="80" value="" />
+    </div>
+    <div class="csc-mailform-field">
+      <label for="auswahlliste">Auswahlliste</label>
+      <select name="auswahl" id="auswahlliste" size="1">
+        <option value=""></option>
+        <option value="Auswahl1">Auswahl 1</option>
+        <option value="Auswahl2">Auswahl 2</option>
+      </select>
+    </div>
+    <div class="csc-mailform-field">
+      <label for="textbox">Textbox*</label>
+      <textarea name="textbox" id="textbox" cols="40" rows="5"></textarea>
+    </div>
+    <div class="csc-mailform-field csc-mailform-checkbox">
+      <input type="checkbox" value="1" name="pflichtfeld" id="pflichtfeld" class="csc-mailform-check" />
+      <label for="pflichtfeld">*Ich erkläre mich damit einverstanden, dass meine personenbezogenen Daten durch die TU München zur Beantwortung meiner Anfrage erhoben, verarbeitet und genutzt werden dürfen. Die Daten werden nicht an Dritte weitergegeben und maximal ein Jahr gespeichert.</label>
+    </div>
+    <div class="csc-mailform-field">
+      <input type="submit" value="Absenden" class="csc-mailform-submit" />
+    </div>
+    <div class="csc-mailform-label">* Pflichtfeld</div>
+  </fieldset>
+</form>
+
+Styleguide 9.0
+*/
+
+/*
+#CssTagForm
+Such nach diesem Tag, um alle von diesen Styles betroffenen Elemente zu finden.
+*/
+
+form {
+  @extend .clearfix;
+
+  font-size: 13px;
+}
+
+label {
+  cursor: pointer;
+}
+
+input,
+label,
+select,
+textarea {
+  display: inline-block;
+}
+
+input,
+textarea {
+  border: 1px solid $darkgray;
+  font-size: inherit;
+}
+
+textarea {
+  font-family: inherit;
+  resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: $lochmara;
+  border: none;
+  color: $white;
+  font-weight: bold;
+  outline: none;
+  padding: 5px 10px;
+  width: auto;
+
+  &:hover {
+    background-color: $royalblue;
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  @include vh();
+
+  &:focus,
+  &:hover {
+    + label {
+      &:before {
+        border-color: $darkgray;
+      }
+    }
+  }
+
+  &:active {
+    + label {
+      &:before {
+        transition-duration: 0s;
+        filter: brightness(0.2);
+      }
+    }
+  }
+
+  &:disabled {
+    + label {
+      cursor: default;
+      &:before {
+        transition-duration: 0s;
+        background-color: $verylightgrey;
+        cursor: default;
+      }
+    }
+  }
+
+  + label {
+    position: relative;
+    padding: 10px;
+    padding-left: 2em;
+    vertical-align: middle;
+    user-select: none;
+
+    &:before {
+      content: '';
+      color: $lochmara;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: $inputWidth;
+      height: $inputHeight;
+      margin-top: -($inputHeight/2 + $inputBorderWidth);
+      border: $inputBorderWidth solid $darkgray;
+      text-align: center;
+    }
+    &:after {
+      content: '';
+      background-color: $lochmara;
+      position: absolute;
+      top: 16px;
+      left: 3px;
+      width: $inputWidth - $inputActiveScale;
+      height: $inputHeight -$inputActiveScale;
+      margin-top: -(($inputHeight - $inputActiveScale)/2);
+      transform: scale(0);
+      transform-origin: 50%;
+    }
+  }
+}
+
+input[type="checkbox"] {
+  + label {
+    &:after {
+      background-color: transparent;
+      top: 50%;
+      left: 2px;
+      width: 13px;
+      height: 6px;
+      margin-top: -5px;
+      border-style: solid;
+      border-color: $lochmara;
+      border-width: 0 0 2px 2px;
+      border-image: none;
+      transform: rotate(-45deg) scale(0);
+    }
+  }
+
+  &:checked {
+    + label {
+      &:after {
+        content: '';
+        transform: rotate(-45deg) scale(1);
+      }
+    }
+  }
+}
+
+input[type="radio"] {
+  &:checked {
+    + label {
+      &:before {
+        background-color: $white;
+      }
+      &:after {
+        transform: scale(1);
+      }
+    }
+  }
+  + label {
+    &:before,
+    &:after {
+      border-radius: 50%;
+    }
+  }
+}
+
+input[type="checkbox"] {
+  &:checked {
+    + label {
+      &:after {
+        transform: rotate(-45deg) scale(1);
+      }
+    }
+  }
+}
+
+/*
+Tabellen
+
+In Tabellen mit Linien wird in der Kopfzeile eine Linie mit 2px Stärke verwendet, ansonsten haben alle Linien 1px Stärke. <br><br>Wenn JavaScript aktiviert ist, wird automatisch bei allen Tabellen die Klasse .table-responsive ergänzt, sodass die Tabelle auf zu schmalen Ansichten horizontal gescrollt werden kann.
+
+Markup:
+<!-- Es werden fünf Spalten abgebildet, damit genug Breite entsteht, um die responsive Darstellung demonstrieren zu können. -->
+<table class="{$modifiers}">
+  <thead>
+    <tr>
+      <th>Table Heading 1</th>
+      <th>Table Heading 2</th>
+      <th>Table Heading 3</th>
+      <th>Table Heading 4</th>
+      <th>Table Heading 5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Table Cell 1</td>
+      <td>Table Cell 2</td>
+      <td>Table Cell 3</td>
+      <td>Table Cell 4</td>
+      <td>Table Cell 5</td>
+    </tr>
+    <tr>
+      <td>Table Cell 1</td>
+      <td>Table Cell 2</td>
+      <td>Table Cell 3</td>
+      <td>Table Cell 4</td>
+      <td>Table Cell 5</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>Table Footer 1</th>
+      <th>Table Footer 2</th>
+      <th>Table Footer 3</th>
+      <th>Table Footer 4</th>
+      <th>Table Footer 5</th>
+    </tr>
+  </tfoot>
+</table>
+
+.clean - Ohne Gitter
+
+Styleguide 8.0
+*/
+
+table {
+  margin-bottom: 20px;
+  width: 100%;
+
+  &.clean {
+    td,
+    th {
+      border: none;
+    }
+  }
+
+  td,
+  th {
+    border-bottom: 1px solid $gainsboro;
+    line-height: 1.5em;
+    padding: 5px 10px;
+    text-align: left;
+  }
+
+  td {
+    font-size: 13px;
+    vertical-align: top;
+  }
+
+  th {
+    border-bottom-width: 2px;
+    font: {
+      size: 15px;
+      weight: bold;
+    }
+  ;
+    line-height: 1.2em;
+  }
+}
+
+/**
+ * Diese Klasse wird per JS um jede Tabelle gewrapped.
+ *
+ * Quelle: http://maxdesign.com.au/articles/simple-responsive-table/
+ */
+.table-responsive {
+  width: 100%;
+  overflow-y: auto;
+  _overflow: auto;
+  margin: 0 0 1em;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 3px solid $white;
+    background-color: rgba(0, 0, 0, .3);
+  }
+}
+
+/*------------------------------------*\
+    #CLEARFIX
+\*------------------------------------*/
+
+/**
+ * http://nicolasgallagher.com/micro-clearfix-hack
+ */
+
+.clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+/*------------------------------------*\
+    #SICHTBARKEITEN
+\*------------------------------------*/
+
+.show-on-mobile {
+  display: none !important;
+}
+
+.hide-on-mobile {
+  display: block !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+/*------------------------------------*\
+    #MOBIL
+\*------------------------------------*/
+
+@media #{$mobile} {
+  body {
+    -webkit-text-size-adjust: none;
+  }
+
+  .show-on-mobile {
+    display: block !important;
+  }
+
+  .hide-on-mobile {
+    display: none !important;
+  }
+}

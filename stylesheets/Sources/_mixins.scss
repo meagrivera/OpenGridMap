@@ -1,0 +1,90 @@
+@mixin link-icon($bg-img: none, $bg-size: 0, $alignment: after, $override: false) {
+  &:#{$alignment} {
+    @if $override == true {
+      background: $bg-img center no-repeat !important;
+      padding-right: $bg-size !important;
+    } @else if $override == false {
+      background: $bg-img center no-repeat;
+      padding-right: $bg-size;
+    }
+    content: "";
+
+    @if $alignment == "after" {
+      margin: {
+        left: 5px;
+        right: 3px;
+      }
+    } @else if $alignment == "before" {
+      margin-right: 5px;
+    }
+  }
+}
+
+@mixin vh() {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@function image-url($url) {
+  @return url($url-image + $url);
+}
+
+// Compass Backport
+// Set all the colors for a link with one mixin call.
+// Order of arguments is:
+//
+// 1. normal
+// 2. hover
+// 3. active
+// 4. visited
+// 5. focus
+//
+// Those states not specified will inherit.
+// Mixin to an anchor link like so:
+//     a
+//       +link-colors(#00c, #0cc, #c0c, #ccc, #cc0)
+
+@mixin link-colors($normal, $hover: false, $active: false, $visited: false, $focus: false) {
+  color: $normal;
+  @if $visited {
+    &:visited {
+      color: $visited;
+    }
+  }
+  @if $focus {
+    &:focus {
+      color: $focus;
+    }
+  }
+  @if $hover {
+    &:hover {
+      color: $hover;
+    }
+  }
+  @if $active {
+    &:active {
+      color: $active;
+    }
+  }
+}
+
+
+@mixin clearfix() {
+  & {
+    *zoom: 1;
+  }
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}

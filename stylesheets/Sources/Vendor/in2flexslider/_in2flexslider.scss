@@ -1,0 +1,410 @@
+.nav-sprite, div.csc-default .flex-direction-nav .flex-prev, div.csc-default .flex-direction-nav .flex-prev:hover, div.csc-default .flex-direction-nav .flex-next, div.csc-default .flex-direction-nav .flex-next:hover, div.csc-default .flex-control-nav li a, div.csc-default .flex-control-nav li a:hover, div.csc-default .flex-control-nav li a.flex-active {
+  background: image-url('nav.png') no-repeat;
+}
+
+div.csc-default .flex-container a:active, div.csc-default .flexslider a:active, div.csc-default .flex-container a:focus, div.csc-default .flexslider a:focus {
+  outline: none;
+}
+
+div.csc-default .slides, div.csc-default .flex-control-nav, div.csc-default .flex-direction-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+div.csc-default .flexslider {
+  margin: 0;
+  padding: 0;
+}
+
+div.csc-default .flexslider .slides > li {
+  display: none;
+  -webkit-backface-visibility: hidden;
+}
+
+div.csc-default .flex-pauseplay span {
+  text-transform: capitalize;
+}
+
+div.csc-default .slides:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+div.csc-default html[xmlns] .slides {
+  display: block;
+}
+
+div.csc-default * html .slides {
+  height: 1%;
+}
+
+div.csc-default .no-js .slides > li:first-child {
+  display: block;
+}
+
+div.csc-default .slides > li:first-child {
+  display: block;
+}
+
+div.csc-default .flexslider {
+  margin: 0 0 60px;
+  position: relative;
+  zoom: 1;
+}
+
+div.csc-default .flexslider.loading .slides > li:first-child {
+  opacity: 1 !important;
+}
+
+div.csc-default .flex-viewport {
+  max-height: 2000px;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+div.csc-default .loading .flex-viewport {
+  max-height: 300px;
+}
+
+div.csc-default .flexslider .slides {
+  zoom: 1;
+}
+
+div.csc-default .carousel li {
+  margin-right: 5px;
+}
+
+div.csc-default .flex-direction-nav a {
+  width: 30px;
+  height: 30px;
+  margin: -20px 0 0;
+  display: block;
+  position: absolute;
+  bottom: 15px;
+  cursor: pointer;
+  text-indent: -9999px;
+}
+
+div.csc-default .flex-direction-nav .flex-prev {
+  background-position: 0 -30px;
+  right: 52px;
+  z-index: 3;
+}
+
+div.csc-default .flex-direction-nav .flex-prev:hover {
+  background-position: 0 -90px;
+}
+
+div.csc-default .flex-direction-nav .flex-next {
+  background-position: 0 0;
+  right: 15px;
+  z-index: 3;
+}
+
+div.csc-default .flex-direction-nav .flex-next:hover {
+  background-position: 0 -60px;
+}
+
+div.csc-default .flex-direction-nav .disabled {
+  opacity: 0.3 !important;
+  filter: alpha(opacity=30);
+  cursor: default;
+}
+
+div.csc-default .flex-control-nav {
+  width: 100%;
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  height: 15px;
+  z-index: 3;
+}
+
+div.csc-default .flex-control-nav li {
+  margin: 0 0 0 5px;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+
+div.csc-default .flex-control-nav li:first-child {
+  margin: 0;
+}
+
+div.csc-default .flex-control-paging li a {
+  width: 15px;
+  height: 15px;
+  display: block;
+  cursor: pointer;
+  text-indent: -9999px;
+}
+
+div.csc-default .flex-control-thumbs {
+  margin: 5px 0 0;
+  position: static;
+  overflow: hidden;
+}
+
+div.csc-default .flex-control-thumbs li {
+  width: 25%;
+  float: left;
+  margin: 0;
+}
+
+div.csc-default .flex-control-thumbs img {
+  width: 100%;
+  display: block;
+  opacity: .7;
+  cursor: pointer;
+}
+
+div.csc-default .flex-control-thumbs img:hover {
+  opacity: 1;
+}
+
+div.csc-default .flex-control-thumbs .active {
+  opacity: 1;
+  cursor: default;
+}
+
+@media screen and (max-width: 860px) {
+  .flex-direction-nav .flex-prev {
+    opacity: 1;
+  }
+  .flex-direction-nav .flex-next {
+    opacity: 1;
+  }
+}
+
+.in2flexconf {
+  display: none;
+}
+
+div.csc-default div.flexslider {
+  background: none repeat scroll 0 0 white;
+  border: 2px solid white;
+  margin: 0;
+}
+
+div.csc-default div.flexslider ul.slides li {
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+div.csc-default div.flexslider ul.slides img {
+  display: block;
+}
+
+div.csc-default div.flexslider .csc-textpic-caption {
+  display: none;
+}
+
+div.csc-default div.flexslider .csc-header {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  background: white;
+  width: 100%;
+}
+
+div.csc-default div.flexslider .csc-textpic-text {
+  position: absolute;
+  top: 62px;
+  left: 0;
+  background: white;
+  width: 100%;
+}
+
+div.csc-default div.flexslider .slidercont {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2%;
+  width: 96%;
+}
+
+div.csc-default div.flexslider .slidercont.lightbg {
+  background: image-url('rgba/ffffff99-5.png');
+  background: rgba(255, 255, 255, 0.6);
+  color: #002143;
+}
+
+div.csc-default div.flexslider .slidercont.lightbg h2 {
+  color: #002143;
+}
+
+div.csc-default div.flexslider .slidercont.darkbg {
+  background: image-url('rgba/00214399-5.png');
+  background: rgba(0, 33, 67, 0.6);
+  color: white;
+}
+
+div.csc-default div.flexslider .slidercont.darkbg h2 {
+  color: white;
+}
+
+@media only screen and (max-width: 767px) {
+  div.csc-default div.flexslider .slidercont h2 {
+    font-size: 1.3em;
+  }
+}
+
+@media (max-width: 480px) {
+  div.csc-default div.flexslider .slidercont h2 {
+    font-size: 0.9em;
+  }
+  div.csc-default div.flexslider .slidercont .bodytext {
+    display: none;
+  }
+}
+
+div.csc-default .flex-direction-nav {
+  list-style-type: none !important;
+}
+
+div.csc-default .flex-control-nav li a {
+  background-position: 0 -120px;
+}
+
+div.csc-default .flex-control-nav li a:hover {
+  background-position: 0 -150px;
+}
+
+div.csc-default .flex-control-nav li a.flex-active {
+  background-position: 0 -135px;
+}
+
+.slider_news {
+  position: relative;
+}
+
+.slider_news a {
+  display: block;
+  color: #002143;
+}
+
+.slider_news a:hover {
+  color: #002143;
+}
+
+.slider_news .slider_newslist {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slider_news .slider_newslist .slider_newsitem {
+  background: image-url("trans_white.png") transparent;
+  margin: 1px 0;
+  height: 33%;
+  border-left: 0px solid #11639d;
+}
+
+.slider_news .slider_newslist .slider_newsitem h4 {
+  text-rendering: optimizelegibility;
+  padding: 2% 0 0 3%;
+  font-size: 1.8em;
+  line-height: 130%;
+}
+
+.slider_news .slider_newslist .slider_newsitem h3 {
+  text-rendering: optimizelegibility;
+  margin: 0;
+  font-size: 2.3em;
+  line-height: 130%;
+  padding: 0 0 0 3%;
+  font-weight: bold;
+}
+
+.slider_news .slider_newslist .slider_newsitem h3 strong {
+  font-weight: bold;
+}
+
+.slider_news .slider_newslist .slider_newsitem:last-child h4 {
+  display: none;
+}
+
+.slider_news .slider_newslist .slider_newsitem:last-child h3 {
+  font-size: 1.8em;
+  padding: 3% 0 0 3%;
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .slider_news .slider_newslist .slider_newsitem h4 {
+    font-size: 1.5em;
+  }
+  .slider_news .slider_newslist .slider_newsitem h3 {
+    font-size: 1.9em;
+  }
+  .slider_news .slider_newslist .slider_newsitem:last-child h3 {
+    font-size: 1.5em;
+    padding-top: 2%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .slider_news .slider_newslist .slider_newsitem h4 {
+    display: none;
+  }
+  .slider_news .slider_newslist .slider_newsitem h3 {
+    font-size: 1.3em;
+    padding-top: 4%;
+  }
+  .slider_news .slider_newslist .slider_newsitem:last-child h3 {
+    font-size: 1.1em;
+    padding-top: 1%;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider_news .slider_newslist .slider_newsitem h3 {
+    font-size: 0.9em;
+  }
+  .slider_news .slider_newslist .slider_newsitem:last-child h3 {
+    font-size: 0.9em;
+    padding-top: 1%;
+  }
+}
+
+.slider_news.news-slider-dark .slider_newsitem {
+  background: image-url("trans_black.png") transparent;
+  border-left: 0px solid white;
+}
+
+.slider_news.news-slider-dark .slider_newsitem h3 a {
+  color: white;
+}
+
+@media only screen and (max-width: 767px) {
+  div.csc-default div.flexslider .flex-direction-nav {
+    display: none;
+  }
+  div.csc-default div.flexslider .flex-control-nav {
+    bottom: 5px;
+    left: 5px;
+  }
+  div.csc-default div.flexslider .flex-control-nav li {
+    margin-left: 5px;
+  }
+  div.csc-default div.flexslider .flex-control-nav li a {
+    background: white !important;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    opacity: 0.9;
+    padding: 0;
+    width: 5px;
+    height: 5px;
+  }
+  div.csc-default div.flexslider .flex-control-nav li a.flex-active {
+    background: #11639d !important;
+  }
+}

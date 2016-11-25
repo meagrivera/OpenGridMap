@@ -1,0 +1,14 @@
+.sitemap {
+  &__list-upper-level {
+    list-style: none;
+    margin-left: 0;
+  }
+
+  &__list-sub-level {
+    padding-left: 1em;
+  }
+
+  &__heading {
+    margin-top: 2em;
+  }
+}
