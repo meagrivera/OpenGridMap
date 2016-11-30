@@ -18,6 +18,11 @@
     <meta name="msapplication-config" content="/images/favicons/browserconfig.xml">
 
     <link rel="stylesheet" href="stylesheets/style.css"/>
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
     <header>
@@ -25,11 +30,6 @@
             <div class="row">
                 <div class="logo-bar">
                     <div class="logo-bar__inner">
-                        <!--<a href="/" title="Zur Startseite" target="_self" class="logo-bar__link logo-bar__word-mark-link"><p>Open Grid Map</p>-->
-                            <!--<object type="image/svg+xml" data="images/tum-word-mark.svg" class="logo-bar__img">-->
-                                <!--<img src="images/tum-word-mark.png" width="208" height="11" alt="TUM – ">-->
-                            <!--</object>-->
-                        <!--</a>-->
                         <div class="org logo-bar__link logo-bar__word-mark-link">
                             <nav>
                                 <ul>
@@ -77,7 +77,7 @@
             <div class="two columns hide-on-mobile">
                 <nav class="subnav">
                     <ul class="subnav__list">
-                        <li class="subnav__item"><a href="#about" class="subnav__link subnav__link--active subnav__link--current">About</a></li>
+                        <li class="subnav__item"><a href="#about" class="subnav__link subnav__link--active">About</a></li>
                         <li class="subnav__item"><a href="#map" class="subnav__link subnav__link--has-submenu">Map</a></li>
                         <li class="subnav__item"><a href="#grid_models" class="subnav__link">Grid Models</a></li>
                         <li class="subnav__item"><a href="#media" class="subnav__link">Media</a></li>
@@ -110,19 +110,13 @@
 
                             <div class="csc-textpic-imagewrap">
                                 <iframe src="http://vmjacobsen39.informatik.tu-muenchen.de" class="twelve columns" height="400" onclick="mapClick()"></iframe>
-                                <a href="http://vmjacobsen39.informatik.tu-muenchen.de" target="_blank"><dd class="csc-textpic-caption">Click here go to the map.</dd></a>
                             </div>
 
-                            <!--<h2 class="csc-firstHeader">Click image above to go to the map</h2>-->
-
-                            <!--<a href="http://vmjacobsen39.informatik.tu-muenchen.de" target="_blank">-->
-                                <!--<div class="csc-textpic-imagewrap">-->
-                                    <!--<dl class="csc-textpic-image csc-textpic-last">-->
-                                        <!--<img src="images/WholeWorld.png">-->
-                                        <!--<dd class="csc-textpic-caption">Click image above to go to the map.</dd>-->
-                                    <!--</dl>-->
-                                <!--</div>-->
-                            <!--</a>-->
+                            <div class="csc-textpic-text">
+                                <p class="bodytext">
+                                    <a class="large-link" href="http://vmjacobsen39.informatik.tu-muenchen.de" target="_blank">Click here go to the map.</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -146,9 +140,9 @@
                             <h2>Media</h2>
 
                             <ul>
-                                <li><strong>Teaser (<a href="https://www.youtube.com/watch?v=Le7d3Lyg0D0" class="user-mention">video</a>)</strong> </li>
-                                <li><strong>Presentation at D-A-CH Energy Informatics Conference 2015 (<a href="https://www.youtube.com/watch?v=s4hsP-J8MOs" class="user-mention">video</a>)</strong></li>
-                                <li><strong>Android app (<a href="https://play.google.com/store/apps/details?id=tanuj.opengridmap&hl=en" class="user-mention">Play store</a>)</strong></li>
+                                <li><strong>Teaser (<a href="https://www.youtube.com/watch?v=Le7d3Lyg0D0" class="">video</a>)</strong> </li>
+                                <li><strong>Presentation at D-A-CH Energy Informatics Conference 2015 (<a href="https://www.youtube.com/watch?v=s4hsP-J8MOs">video</a>)</strong></li>
+                                <li><strong>Android app (<a href="https://play.google.com/store/apps/details?id=tanuj.opengridmap&hl=en">Play store</a>)</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -364,5 +358,16 @@
 
     <script src="javascripts/basic.js"></script>
     <script src="javascripts/main.js"></script>
+
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-63269373-1");
+            pageTracker._trackPageview();
+        } catch (err) {}
+    </script>
 </body>
 </html>
