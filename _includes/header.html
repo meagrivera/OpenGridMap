@@ -1,0 +1,62 @@
+<header>
+    <div class="js-service-bar service-bar">
+        <div class="row">
+            <div class="twelve columns">
+                <!--<nav class="quicklinks"><ul class="quicklinks__list quicklinks__list&#45;&#45;1-level"><li class="quicklinks__item-1-level"><span class="quicklinks__title js-double-tap">Quick-Links</span><ul class="quicklinks__list quicklinks__list&#45;&#45;2-level"><li><a href="https://www.tum.de/service-bar/quick-links/personensuche/" target="_blank" class="quicklinks__link">Personensuche</a></li><li><a href="https://www.tum.de/die-tum/kontakt-und-anfahrt/login/" class="quicklinks__link">IT Dienste und Logins</a></li><li><a href="https://www.tum.de/service-bar/quick-links/kalender/" target="https://portal.mytum.de/termine/calendar_view" class="quicklinks__link">Kalender</a></li><li><a href="https://www.tum.de/service-bar/quick-links/mytum/" target="_blank" class="quicklinks__link">MyTUM</a></li><li><a href="https://www.tum.de/service-bar/quick-links/dienstleistungsshykompass/" target="_blank" class="quicklinks__link">Dienstleistungs­kompass</a></li><li><a href="https://www.tum.de/service-bar/quick-links/raumsuche/" target="_blank" class="quicklinks__link">Raumsuche</a></li><li><a href="https://www.tum.de/service-bar/quick-links/presse/" target="_blank" class="quicklinks__link">Presse</a></li><li><a href="https://www.tum.de/service-bar/quick-links/corporate-design/" target="_blank" class="quicklinks__link">Corporate Design</a></li><li><a href="https://www.tum.de/datenschutz/" class="quicklinks__link">Datenschutz</a></li></ul></li></ul></nav>-->
+                <nav class="language-nav">
+                    <ul class="language-nav__list">
+                    {% for lang in page.langs %}
+                        <li class="language-nav__item {% if lang.last %} language-nav__item--last {% endif %}"><a href="{{ lang.url }}" class="language-nav__link {% if lang.active %} language-nav__link--active {% endif %}">{{ lang.lang }}</a></li>
+                    {% endfor %}
+                        <!--<li class="language-nav__item"><a href="https://www.tum.de/die-tum/aktuelles/pressemitteilungen/detail/article/33578/" class="language-nav__link language-nav__link&#45;&#45;active">de</a></li>-->
+                        <!--<li class="language-nav__item language-nav__item&#45;&#45;last"><a href="https://www.tum.de/en/about-tum/news/press-releases/detail/article/33578/" class="language-nav__link">en</a></li>-->
+                    </ul>
+                </nav>
+                <!--<a class="js-cse-open cse-open" href="https://www.tum.de/suche/">-->
+                    <!--Suche-->
+                <!--</a>-->
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="logo-bar">
+                <div class="logo-bar__inner">
+                    <div class="org logo-bar__link logo-bar__word-mark-link">
+                        <nav>
+                            <ul>
+                                <li class="l_this">
+                                    <a href="https://www.i13.in.tum.de/" title="Home www.i13.in.tum.de">Chair of Business Information Systems</a>
+                                </li>
+                                <li class="l_parent">
+                                    <a href="http://www.in.tum.de/en.html" title="Home www.in.tum.de" target="_top">TUM Department of Informatics</a>
+                                </li>
+                                <li class="l_top">
+                                    <a href="http://www.tum.de/en/" title="Home www.tum.de" target="_top">Technical University of Munich</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <a href="/" title="Zur Startseite" target="_self" class="logo-bar__link logo-bar__logo-link">
+                        <object type="image/svg+xml" data="/Images/tum-logo.svg" class="logo-bar__img">
+                            <img src="/Images/tum-logo.png" width="73" height="38" alt="TUM – ">
+                        </object>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <nav class="main-nav js-main-nav">
+                <ul class="main-nav__list clearfix js-main-nav-list">
+                {% for item in include.nav_items %}
+                    <li class="main-nav__item-1-level main-nav__item-1-level--hover js-main-nav-item-1-level">
+                        <span class="main-nav__toggle main-nav__toggle--1-level js-main-nav-sub-toggle"></span>
+                        <a href="{{ item.url }}" class="main-nav__link js-main-nav-link main-nav__link--1-level {% if page.url == item.url %} main-nav__link--active {% endif %}">{{ item.label }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>

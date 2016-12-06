@@ -1,0 +1,15 @@
+title: OpenGridMap
+include: ['_pages']
+
+primary-nav-items:
+    - label: About Open Grid Map
+      url: /
+
+    - label: Impressum
+      url: /impressum/
+
+    - label: Terms Of Use
+      url: /terms/
+
+    - label: Press
+      url: /press/

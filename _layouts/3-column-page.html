@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<main class="container content">
+    <div class="row">
+        <div class="two columns hide-on-mobile">
+            {% include sidenav.html sidenav_items=page.sidenav_items %}
+        </div>
+
+        <div class="seven columns">
+            {{ content }}
+        </div>
+
+        <div class="three columns hide-on-mobile">
+            {% include contact.html %}
+        </div>
+    </div>
+</main>

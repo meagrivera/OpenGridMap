@@ -1,0 +1,10 @@
+{% if include.sidenav_items %}
+<nav class="subnav">
+    <ul class="subnav__list">
+    {% for item in include.sidenav_items %}
+        <li class="subnav__item"><a href="{{ item.url }}" class="subnav__link">{{ item.label }}</a></li>
+        <!--<li class="subnav__item"><a href="{{ item.url }}" class="subnav__link subnav__link&#45;&#45;active">{{ item.label }}</a></li>-->
+    {% endfor %}
+    </ul>
+</nav>
+{% endif %}

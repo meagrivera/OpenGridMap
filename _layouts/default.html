@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include head.html %}
+    <body>
+        {% include header.html nav_items=site.primary-nav-items %}
+        {{ content }}
+        {% include footer.html %}
+        {% include scripts.html %}
+        {% include analytics.html %}
+    </body>
+</html>
