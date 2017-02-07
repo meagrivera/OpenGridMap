@@ -5,17 +5,17 @@ primary-nav-items:
     - label: About Open Grid Map
       url: /
 
+    - label: Map
+      url: http://vmjacobsen39.informatik.tu-muenchen.de/
+
+    - label: App
+      url: https://play.google.com/store/apps/details?id=tanuj.opengridmap
+
+    - label: Press
+      url: /press/
+
     - label: Impressum
       url: /impressum/
 
     - label: Terms Of Use
       url: /terms/
-
-    - label: Press
-      url: /press/
-
-    - label: Map
-      url: /map/
-
-    - label: App
-      url: https://play.google.com/store/apps/details?id=tanuj.opengridmap
