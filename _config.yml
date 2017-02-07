@@ -13,3 +13,9 @@ primary-nav-items:
 
     - label: Press
       url: /press/
+
+    - label: Map
+      url: /map/
+
+    - label: App
+      url: https://play.google.com/store/apps/details?id=tanuj.opengridmap
