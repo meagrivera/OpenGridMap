@@ -1,5 +1,6 @@
 title: OpenGridMap
 include: ['_pages']
+ga_tracking_id: UA-63269373-1
 
 primary-nav-items:
     - label: About Open Grid Map
